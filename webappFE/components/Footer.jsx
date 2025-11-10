@@ -1,61 +1,187 @@
-import React from "react";
-
 const Footer = () => {
   return (
-    <div style={{ position: "relative", width: "100%", marginTop: "-100px" }}>
-      {/* ===== CARD DI ATAS SECTION ===== */}
-      <div
-        style={{
-          position: "absolute",
-          top: "-100px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "80%",
-          backgroundColor: "#ffffff",
-          borderRadius: "20px",
-          boxShadow: "0 5px 20px rgba(0,0,0,0.2)",
-          padding: "40px",
-          zIndex: 2,
-          textAlign: "center",
-        }}
-      >
-        <h2 style={{ color: "#0C2B4E", marginBottom: "15px" }}>
-          Subscribe To Our Weekly Newsletter
-        </h2>
-        <button
-          style={{
-            backgroundColor: "#0C2B4E",
-            color: "#fff",
-            border: "none",
-            padding: "10px 20px",
-            borderRadius: "8px",
-            cursor: "pointer",
-            fontWeight: "bold",
-            transition: "all 0.3s ease",
-          }}
-          onMouseOver={(e) => (e.target.style.backgroundColor = "#117A65")}
-          onMouseOut={(e) => (e.target.style.backgroundColor = "#0C2B4E")}
-        >
-          Subscribe Now
-        </button>
+    <div style={{ position: "relative", width: "100%", marginTop: "-100px", fontFamily : " Roboto", color : " #0D2430" }}>
+      <div className="subscribe-card">
+        <div className="subscribe-left">
+          <h2>
+            Subscribe To Our <br /> Weekly Newsletter
+          </h2>
+        </div>
+
+        <div className="subscribe-right">
+          <div className="label-group" >
+            <label htmlFor="email">✓ Free Consultation</label>
+            <label htmlFor="email">✓ Free coba</label>
+          </div>
+
+          <div className="input-group">
+            <input
+              id="email"
+              type="email"
+              placeholder="Enter your email"
+              disabled
+            />
+            <button disabled>Subscribe</button>
+          </div>
+        </div>
+
+         <style>
+    {`
+      .subscribe-card {
+        background-color: #CDEC76;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        padding: 40px;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        color: #0D2430;
+        width: 80%;
+        margin: 0 auto;
+        height : 210px;
+      }
+
+      .subscribe-left h2 {
+        color: #0C2B4E;
+        font-size: 40px;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .subscribe-right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        
+      }
+
+      .label-group {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 50px; 
+      }
+
+      .label-group label {
+        color: black;
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      .input-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .input-group input {
+        flex: 1;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        background-color: #fff;
+      }
+
+      .input-group button {
+        background-color: #0d2430;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: not-allowed;
+        opacity: 0.7;
+        white-space: nowrap;
+      }
+
+      @media (max-width: 1024px) {
+        .subscribe-card {
+          flex-direction: column;
+          text-align: center;
+          gap: 20px;
+          padding: 30px;
+          height : 270px;
+        }
+        .subscribe-left h2 {
+          font-size: 24px;
+        }
+        .label-group {
+          justify-content: center;
+          gap: 15px;
+        }
+        .input-group {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .input-group input,
+        .input-group button {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .subscribe-card {
+          position: relative;
+          bottom: -50px;
+          left: 0;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 15px;
+        }
+
+        .subscribe-left h2 {
+          font-size: 20px;
+          text-align: center;
+        }
+
+        .label-group {
+          justify-content: space-between;
+          gap: 10px;
+        }
+
+        .label-group label {
+          font-size: 14px;
+        }
+
+        .input-group {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 10px;
+        }
+
+        .input-group input,
+        .input-group button {
+          width: 100%;
+          font-size: 14px;
+          padding: 12px;
+        }
+      }
+    `}
+  </style>
       </div>
 
-      {/* ===== SECTION GRADIENT ===== */}
       <section
         style={{
-          background: "linear-gradient(to right, #0C2B4E, #117A65)",
+          background: "linear-gradient(to top, #00202e, #003f5c)",
           color: "#fff",
           display: "flex",
           justifyContent: "space-around",
           alignItems: "flex-start",
-          padding: "120px 20px 60px", // ruang atas untuk overlap card
+          padding: "120px 20px 60px",
           flexWrap: "wrap",
           textAlign: "left",
           zIndex: 1,
+          backgroundImage: `
+            linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 2px),
+            linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 2px)
+          `,
+          backgroundSize: "100px 100px",
         }}
       >
-        {/* Kolom 1 - Logo dan Perusahaan */}
-        <div style={{ width: "250px", margin: "20px" }}>
+        <div className="footer-col" style={{ width: "250px", margin: "20px" }}>
           <img
             src="/images/logoPerusahaan.png"
             alt="PT. Natadana Solusi Pratama"
@@ -65,29 +191,16 @@ const Footer = () => {
               marginBottom: "15px",
             }}
           />
-          <h3
-            style={{
-              fontSize: "1.2rem",
-              marginBottom: "5px",
-              fontWeight: "bold",
-            }}
-          >
+          <p style={{ fontSize: "1rem", color: "#E0E0E0", lineHeight: "1.5" }}>
             PT. Natadana Solusi Pratama
-          </h3>
-          <p
-            style={{
-              fontSize: "1rem",
-              color: "#E0E0E0",
-              lineHeight: "1.5",
-            }}
-          >
+          </p>
+          <p style={{ fontSize: "1rem", color: "#E0E0E0", lineHeight: "1.5" }}>
             Partnership Digital Solution
           </p>
         </div>
 
-        {/* Kolom 2 - Our Services */}
-        <div style={{ width: "200px", margin: "20px" }}>
-          <h3 style={{ fontSize: "1.2rem", marginBottom: "10px" }}>
+        <div className="footer-col" style={{ width: "200px", margin: "20px" }}>
+          <h3 style={{ fontSize: "1.2rem", marginBottom: "10px", color: "#CDEC76" }}>
             Our Services
           </h3>
           <ul style={{ listStyle: "none", padding: 0, lineHeight: "1.8" }}>
@@ -97,9 +210,10 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Kolom 3 - Support */}
-        <div style={{ width: "200px", margin: "20px" }}>
-          <h3 style={{ fontSize: "1.2rem", marginBottom: "10px" }}>Support</h3>
+        <div className="footer-col" style={{ width: "200px", margin: "20px" }}>
+          <h3 style={{ fontSize: "1.2rem", marginBottom: "10px", color: "#CDEC76" }}>
+            Support
+          </h3>
           <ul style={{ listStyle: "none", padding: 0, lineHeight: "1.8" }}>
             <li>Privacy Policy</li>
             <li>Disclaimer</li>
@@ -109,35 +223,67 @@ const Footer = () => {
         </div>
 
         {/* Kolom 4 - Contact Us */}
-        <div style={{ width: "250px", margin: "20px" }}>
-          <h3 style={{ fontSize: "1.2rem", marginBottom: "10px" }}>
+        <div className="footer-col" style={{ width: "250px", margin: "20px" }}>
+          <h3 style={{ fontSize: "1.2rem", marginBottom: "10px", color: "#CDEC76" }}>
             Contact Us
           </h3>
-          <p style={{ margin: "8px 0" }}>📞 +62 217248867</p>
-          <p style={{ margin: "8px 0" }}>✉️ admin@nda.co.id</p>
-          <p style={{ margin: "8px 0", lineHeight: "1.5" }}>
-            🏢 WISMA BAYUADJI unit 304 A
-            <br />
+
+          <p style={{ margin: "8px 0", display: "flex", alignItems: "center", gap: "8px" }}>
+            <span className="material-symbols-outlined" style={{ color: "#CDEC76" }}>
+              call
+            </span>
+            +62 217248867
+          </p>
+
+          <p style={{ margin: "8px 0", display: "flex", alignItems: "center", gap: "8px" }}>
+            <span className="material-symbols-outlined" style={{ color: "#CDEC76" }}>
+              mail
+            </span>
+            admin@nda.co.id
+          </p>
+
+          <p style={{ margin: "8px 0", display: "flex", alignItems: "flex-start", gap: "8px", lineHeight: "1.5" }}>
+            <span className="material-symbols-outlined" style={{ color: "#CDEC76" }}>
+              location_on
+            </span>
+            WISMA BAYUADJI unit 304 A<br />
             Jl. Gandaria Tengah III No.44, Jakarta Selatan, 12240
           </p>
         </div>
       </section>
 
-      {/* ===== FOOTER ===== */}
       <footer
         style={{
           backgroundColor: "#FFF8D4",
           textAlign: "center",
           padding: "20px",
           width: "100%",
-          boxSizing: "border-box",
           color: "black",
         }}
       >
-        <p style={{ margin: 0 }}>
-          Copyright © 2025 Natadana | Powered by Natadana
-        </p>
+        <p style={{ margin: 0 }}>Copyright © 2025 Natadana | Powered by Natadana</p>
       </footer>
+
+      <style>
+        {`
+        @media (max-width: 768px) {
+          section {
+            justify-content: left !important;
+            text-align: left !important;
+          }
+
+          .footer-col {
+            width: 100% !important;
+            margin: 10px 0 !important;
+            max-width: 300px;
+          }
+
+          .footer-col ul {
+            padding-left: 0 !important;
+          }
+        }
+      `}
+      </style>
     </div>
   );
 };
