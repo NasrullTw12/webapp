@@ -21,3 +21,20 @@ body {
   padding: 0;  /* kalau mau, bisa juga nolkan padding default */
   background-color: #00202e;
 }
+
+   @media (max-width: 768px) {
+  #slebew {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 50px !important;
+  }
+
+  #slebew > div {
+    width: 100% !important;
+    position: relative !important;
+    transform: none !important;
+    top: auto !important;
+    margin-bottom: 20px !important;
+  }
+   }

@@ -1,32 +1,17 @@
 import React, { useEffect, useState } from "react";
 
-const HomeContent2 = () => {
+const AboutContent1 = () => {
+const [isMobile, setIsMobile] = useState(false);
   const [animate, setAnimate] = useState(false);
-
   const targets = [10, 13, 98, 15];
-
   const descriptions = [
     "Happy Customers",
     "Awards Winning",
     "Striving for Customer Satisfaction is Top Priority",
     "Completed Project",
   ];
-
   const icons = ["+", "+", "%", "+"];
-
   const [counts, setCounts] = useState(Array(targets.length).fill(0));
-
-  const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-      const handleResize = () => {
-        setIsMobile(window.innerWidth <= 768);
-      };
-  
-      handleResize();
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
 
   useEffect(() => {
     setAnimate(true);
@@ -53,6 +38,16 @@ const HomeContent2 = () => {
 
     return () => intervals.forEach((interval) => clearInterval(interval));
   }, []);
+
+    useEffect(() => {
+      const handleResize = () => {
+        setIsMobile(window.innerWidth <= 768);
+      };
+  
+      handleResize();
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
   return (
     <div style={{ width: "100%", margin: 0, padding: 0 }}>
@@ -81,7 +76,7 @@ const HomeContent2 = () => {
         >
           <img
             src="/images/gambar2.jpg"
-            alt="gambar section"
+            alt="Company Vision"
             style={{
               maxWidth: "100%",
               height: "auto",
@@ -99,45 +94,41 @@ const HomeContent2 = () => {
             }}
           >
            
-            <div
+            <p
               style={{
-                flex: "1 1 30%",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                justifyContent: "flex-start",
-                fontSize: isMobile ? "2rem" : "1.5rem",
+                flex: "1 1 48%", 
+                fontSize: "2rem",
                 lineHeight: 1.6,
                 color: "#121213ff",
-                textAlign: "left",
+                textAlign: "justify",
                 margin: 0,
                 marginTop: "10px",
-                fontWeight: "bold",
-                gap: "5px",
+                fontWeight : "bold",
               }}
             >
-              <img
-                src="https://nda.co.id/wp-content/uploads/2025/02/18.png"
-                alt="company vision"
-                style={{
-                  width: "60px",
-                  height: "60px",
-                  background: "#CDEC76",
-                  borderRadius: "50%",
-                  padding: "15px",
-                  objectFit: "contain",
-                  flexShrink: 0,
-                }}
-              />
+              <span> <img
+            src="https://nda.co.id/wp-content/uploads/2025/02/18.png"
+            alt="company vision"
+            style={{
+               width: "60px",
+              height: "60px",
+              background: "#CDEC76",
+              borderRadius: "50%", 
+              padding: "5px", 
+              objectFit: "contain" 
+            
+            }}
+          /></span>
               Company Vision
-            </div>
+            </p>
+
             <p
               style={{
                 flex: "1 1 48%",
-                fontSize: "1rem",
-                lineHeight: 1.3,
+                fontSize: "0.9rem",
+                lineHeight: 1.6,
                 color: "#121213ff",
-                marginTop: "30px",
+                margin: 0,
               }}
             >
               Providing unlimited access to comprehensive and quality resources in the digital space for the financial industry and other industries
@@ -148,7 +139,7 @@ const HomeContent2 = () => {
         <div
           style={{
             flex: "1 1 500px",
-            padding: "10px",
+            padding: "1px",
             color: "#121213ff",
             fontFamily: "sans-serif",
             backgroundColor: "#ffff",
@@ -162,98 +153,77 @@ const HomeContent2 = () => {
         >
           <div
             style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: isMobile ? "center" : "flex-start",
-              justifyContent: isMobile ? "center" : "flex-start",
-              textAlign: isMobile ? "center" : "left",
-              padding: isMobile ? "40px 20px" : "60px 80px",
+              display: "inline-block",
+              color: "#0D2430",
+              padding: "10px 20px",
+              borderRadius: "20px",
+              border: "2px solid #CDEC76",
+              marginBottom: "10px",
+              backgroundColor : "#e9f1b6ff"
             }}
           >
-            <div
-              style={{
-                display: "inline-block",
-                color: "#0D2430",
-                padding: "10px 20px",
-                borderRadius: "20px",
-                border: "2px solid #CDEC76",
-                marginBottom: "10px",
-                backgroundColor: "#e9f1b6ff",
-              }}
-            >
-              About Us
-            </div>
+            About Us
+          </div>          
+          <h3
+            style={{
+              fontSize: isMobile ? "2rem" : "3.5rem",
+              color: "#0D2430",
+              marginBottom: "30px",
+            }}
+          >
+            Solution For Your Every Digital Solution
+          </h3>
 
-            <h3
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "space-between",
+              gap: "5px",
+            }}
+          >
+            <p
               style={{
-                fontSize: isMobile ? "1.8rem" : "3.5rem",
-                color: "#0D2430",
-                marginBottom: "30px",
-                lineHeight: 1.2,
-                textAlign: isMobile ? "center" : "left",
+                flex: "1 1 48%", // dua kolom
+                fontSize: "2rem",
+                lineHeight: 1.6,
+                color: "#333",
+                textAlign: "justify",
+                marginBottom: "20px",
+                fontWeight : "bold",
               }}
             >
-              The Best Digital Consultant In Town
-            </h3>
-
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: isMobile ? "center" : "space-between",
-                alignItems: isMobile ? "center" : "flex-start",
-                gap: "10px",
-              }}
-            >
-              <div
-                style={{
-                  flex: isMobile ? "1 1 100%" : "1 1 30%",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: isMobile ? "center" : "flex-start",
-                  justifyContent: "center",
-                  fontSize: isMobile ? "1.3rem" : "1.5rem",
-                  lineHeight: 1.6,
-                  color: "#333",
-                  textAlign: isMobile ? "center" : "left",
-                  marginBottom: "10px",
-                  fontWeight: "bold",
-                  gap: "10px",
-                }}
-              >
+              <span>
                 <img
-                  src="https://nda.co.id/wp-content/uploads/2025/02/17-1.png"
-                  alt="company mission"
-                  style={{
-                    width: "60px",
-                    height: "60px",
-                    background: "#CDEC76",
-                    borderRadius: "50%",
-                    padding: "5px",
-                    objectFit: "contain",
-                    flexShrink: 0,
-                  }}
-                />
-                Company Mission
-              </div>
+            src="https://nda.co.id/wp-content/uploads/2025/02/17-1.png"
+            alt="company vision"
+            style={{
+               width: "60px",
+              height: "60px",
+              background: "#CDEC76",
+              borderRadius: "50%", 
+              padding: "5px", 
+              objectFit: "contain" 
+            
+            }}
+          />
+              </span>
+            Company Mission
+           </p>
 
-              <p
-                style={{
-                  flex: isMobile ? "1 1 100%" : "1 1 48%",
-                  fontSize: isMobile ? "0.8rem" : "1rem",
-                  lineHeight: 1.6,
-                  color: "#333",
-                  marginTop: isMobile ? "10px" : "30px",
-                  textAlign: isMobile ? "center" : "left",
-                  marginTop :"-10px",
-                }}
-              >
-                To be the preferred partner of the financial industry in implementing
-                digital processes to develop our partners’ businesses.
-              </p>
-            </div>
+            <p
+              style={{
+                flex: "1 1 48%",
+                fontSize: "1rem",
+                lineHeight: 1.6,
+                color: "#333",
+                marginBottom: "20px",
+              }}
+            >
+             To be the preferred partner of the financial industry in implementing digital processes to develop our partners’ businesses.
+
+            </p>
           </div>
-
           <div
             style={{
               display: "flex",
@@ -261,30 +231,33 @@ const HomeContent2 = () => {
               justifyContent: "space-between",
               alignItems: "center",
               backgroundColor: "#00202e",
-              borderRadius: "60px",
+              borderRadius: "20px",
               border: "2px solid #CDEC76",
               padding: "30px",
               marginBottom: "20px",
             }}
           >
+
             <p
               style={{
                 flex: "1 1 auto", 
                 fontSize: "1rem",
-                lineHeight: 1.2,
+                lineHeight: 1.6,
                 color: "#fff",
                 margin: 0,
                 background : "#00202e",
               }}
             >
               <span style={{   background: "#CDEC76",
-              borderRadius: "85%", 
+              borderRadius: "50%", 
               padding: "5px", 
               objectFit: "contain",
               color : "#00202e",
             }}>✓</span> Join us to achieve sustainable growth and reach your financial <br />goals
               with the right strategies.
             </p>
+
+            
             <button
               style={{
                 padding: "12px 25px",
@@ -320,10 +293,13 @@ const HomeContent2 = () => {
               </svg>
             </button>
           </div>
+    
+
+          
         </div>
       </section>
 
-      <section id="slebew"
+      <section id="kiwkiw"
         style={{
           display: "flex",
           flexDirection: "row", 
@@ -385,6 +361,8 @@ const HomeContent2 = () => {
           ></div>
         </div>
 
+
+
             <div
               style={{
                 display: "flex",
@@ -425,37 +403,22 @@ const HomeContent2 = () => {
     <style>
         {`
         @media (max-width: 768px) {
-  /* Ubah section menjadi flex column dengan order */
-  section#kiwkiw {
+  #kiwkiw {
     display: flex !important;
     flex-direction: column !important;
-    align-items: stretch !important;
+    align-items: center !important;
     padding: 20px !important;
   }
 
-  /* About Us section (right div) - order 1 */
-  section#kiwkiw > div:nth-child(2) {
-    order: 1 !important;
+  #kiwkiw > div {
     width: 100% !important;
-    padding: 20px !important;
+    position: relative !important;
     transform: none !important;
+    top: auto !important;
     margin-bottom: 20px !important;
-    flex: 1 1 100% !important;
   }
 
-  /* Gambar & Company Vision section (left div) - order 2 */
-  section#kiwkiw > div:nth-child(1) {
-    order: 2 !important;
-    width: 100% !important;
-    padding: 20px !important;
-    transform: none !important;
-    flex: 1 1 100% !important;
-  }
-
-  /* Stats section - order 3 */
-  section#kiwkiw ~ section {
-    order: 3 !important;
-  }
+            
           }
         `}
       </style>
@@ -464,4 +427,4 @@ const HomeContent2 = () => {
   );
 };
 
-export default HomeContent2;
+export default AboutContent1;

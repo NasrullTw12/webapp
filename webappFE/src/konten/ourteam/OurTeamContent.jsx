@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const OurTeamContent = () => {
   useEffect(() => {
@@ -26,6 +26,17 @@ const OurTeamContent = () => {
     animate();
   }, []);
 
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const handleResize = () => {
+          setIsMobile(window.innerWidth <= 768);
+        };
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+      }, []);
+
   const cardStyle = {
     flex: "1 1 45%",
     backgroundColor: "#ffffff22",
@@ -35,6 +46,7 @@ const OurTeamContent = () => {
     position: "relative",
     minWidth: "280px",
     transition: "all 0.3s ease",
+    height: "300px",
   };
 
   const imageStyle = {
@@ -65,6 +77,8 @@ const OurTeamContent = () => {
     gap: "8px",
   };
 
+
+
   return (
     <div
       style={{
@@ -90,7 +104,7 @@ const OurTeamContent = () => {
         Our Team
       </div>
 
-      <p style={{ fontSize: "4rem", margin: "0", color: "white" }}>
+      <p style={{ fontSize: isMobile? "3rem" : "4rem", margin: "0", color: "white" ,marginTop : "-8px", fontWeight : "bold"}}>
         Meet Our Member
       </p>
 
@@ -101,6 +115,7 @@ const OurTeamContent = () => {
           margin: "0",
           color: "white",
           marginBottom: "60px",
+          
         }}
       >
         A Team of Experts Committed to Driving Your Success Forward

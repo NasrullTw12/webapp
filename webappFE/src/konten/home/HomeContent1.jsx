@@ -66,33 +66,33 @@ const HomeContent1 = () => {
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
         <div
-            style={{
+             style={{
             position: "absolute",
             bottom: "0",
             left: "0",
             width: "100%",
-            height: "50%", 
+            height: "70%", 
             background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
             }}
         ></div>
         <div
          style={{
-            position: "absolute",
+           position: "absolute",
             top: "70%", 
-            left: "40%",
+            left: "60%",
             transform: "translate(-50%, -50%)",
             color: "#fff",
             fontWeight: "bold",
-            fontSize: "1.5rem",
+            fontSize: "1.3rem",
             textAlign: "left",
-          }}
+            width : "100%",
+            }}
         >
           How Does It Work?
             <div
             style={{
-                marginTop: "10px",
-                color: "#FFD700",
-                fontWeight: "bold",
+               marginTop: "10px",
+                color: "#CDEC76",
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
@@ -146,8 +146,8 @@ const HomeContent1 = () => {
             alt={`${ruang.name} icon`}
             style={{
               marginBottom: "10px",
-              width: "40px",
-              height: "40px",
+              width: "60px",
+              height: "60px",
               background: "#CDEC76",
               borderRadius: "50%", 
               padding: "5px", 

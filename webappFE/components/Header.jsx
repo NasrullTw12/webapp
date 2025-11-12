@@ -1,8 +1,19 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+      const handleResize = () => {
+        setIsMobile(window.innerWidth <= 768);
+      };
+
+      handleResize();
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
   const location = useLocation();
 
   const menuItems = [
@@ -34,12 +45,10 @@ const Header = () => {
           position: "relative",
         }}
       >
-        {/* Logo kiri */}
         <div>
-          <img src="/images/logoPerusahaan.png" alt="Logo" style={{ height: "80px" }} />
+          <img src="/images/logoPerusahaan.png" alt="Logo" style={{ height: isMobile ? "120" :"80px" }} />
         </div>
 
-        {/* Menu desktop */}
         <nav className="desktop-menu-wrapper">
           <div className="desktop-menu">
             {menuItems.map((item, index) => (
@@ -47,10 +56,9 @@ const Header = () => {
                 key={item.name}
                 to={item.path}
                 style={{
-                  color: location.pathname === item.path ? "#CDEC76" : "#fff", // <-- menu aktif merah
+                  color: location.pathname === item.path ? "#CDEC76" : "#fff", 
                   padding: "10px 80px 20px 50px",
                   textDecoration: "none",
-                  fontWeight: "bold",
                   borderLeft: index !== 0 ? "1px solid #1b191918" : "none",
                   transition: "color 0.3s",
                 }}
@@ -61,7 +69,6 @@ const Header = () => {
           </div>
         </nav>
 
-        {/* Button desktop */}
         <div className="desktop-button">
           <Link 
             to="/contact"
@@ -89,10 +96,8 @@ const Header = () => {
                 .get-started-button {
                     padding: 12px 25px;
                     border-radius: 25px;
-                    border: none;
                     background-color: #ffff;
                     color: #0C2B4E;
-                    font-weight: bold;
                     cursor: pointer;
                     display: flex;
                     align-items: center;
@@ -102,7 +107,9 @@ const Header = () => {
                     width: fit-content;
                   }
                   .get-started-button:hover {
-                    background-color: white;
+                    background-color: transparent;
+                    color : white;
+                    border : 1px solid white;
                   }
                   .get-started-button:hover .arrow {
                     transform: translateX(5px);
@@ -112,7 +119,6 @@ const Header = () => {
           </style>
         </div>
 
-        {/* Hamburger icon */}
         <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
           <span style={{ display: "block", width: "25px", height: "3px", backgroundColor: "#fff", margin: "4px 0" }}></span>
           <span style={{ display: "block", width: "25px", height: "3px", backgroundColor: "#fff", margin: "4px 0" }}></span>
@@ -120,7 +126,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Menu mobile */}
       {isOpen && (
         <nav className="mobile-menu">
           {menuItems.map((item) => (
@@ -142,7 +147,6 @@ const Header = () => {
         </nav>
       )}
 
-      {/* CSS media queries */}
       <style>
         {`
           .desktop-menu-wrapper {

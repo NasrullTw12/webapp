@@ -1,4 +1,19 @@
+import React, { useEffect, useState } from "react";
+
+
+
 const Footer = () => {
+   const [isMobile, setIsMobile] = useState(false);
+ 
+    useEffect(() => {
+        const handleResize = () => {
+          setIsMobile(window.innerWidth <= 768);
+        };
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+      }, []);
   return (
     <div style={{ position: "relative", width: "100%", marginTop: "-100px", fontFamily : " Roboto", color : " #0D2430" }}>
       <div className="subscribe-card">
@@ -10,8 +25,16 @@ const Footer = () => {
 
         <div className="subscribe-right">
           <div className="label-group" >
-            <label htmlFor="email">✓ Free Consultation</label>
-            <label htmlFor="email">✓ Free coba</label>
+            <label htmlFor="email"><span style={{ background: "#00202e",
+              borderRadius: "50%", 
+              padding: "5px", 
+              objectFit: "contain",
+              color : "#CDEC76",}}>✓</span> Free Consultation</label>
+            <label htmlFor="email"><span style={{ background: "#00202e",
+              borderRadius: "50%", 
+              padding: "5px", 
+              objectFit: "contain",
+              color : "#CDEC76",}}>✓</span> Free coba</label>
           </div>
 
           <div className="input-group">
@@ -86,14 +109,13 @@ const Footer = () => {
       }
 
       .input-group button {
-        background-color: #0d2430;
+        background-color: #00202e;
         color: #fff;
         border: none;
         padding: 10px 20px;
         border-radius: 8px;
         font-weight: bold;
         cursor: not-allowed;
-        opacity: 0.7;
         white-space: nowrap;
       }
 
@@ -163,7 +185,7 @@ const Footer = () => {
   </style>
       </div>
 
-      <section
+      <section id="slebew"
         style={{
           background: "linear-gradient(to top, #00202e, #003f5c)",
           color: "#fff",
@@ -179,16 +201,20 @@ const Footer = () => {
             linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 2px)
           `,
           backgroundSize: "100px 100px",
+          
         }}
       >
-        <div className="footer-col" style={{ width: "250px", margin: "20px" }}>
+        <div className="footer-col" style={{ width: "250px", margin: "20px", textAlign: isMobile ? "center" : "left" }}>
           <img
             src="/images/logoPerusahaan.png"
             alt="PT. Natadana Solusi Pratama"
             style={{
-              width: "80px",
-              height: "80px",
+              width: isMobile ? "120px" : "80px",
+              height: isMobile ? "120px" : "80px",
               marginBottom: "15px",
+              marginLeft: isMobile ? "auto" : "0",
+              marginRight: isMobile ? "auto" : "0",
+              display: isMobile ? "block" : "inline-block",
             }}
           />
           <p style={{ fontSize: "1rem", color: "#E0E0E0", lineHeight: "1.5" }}>
@@ -199,7 +225,7 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="footer-col" style={{ width: "200px", margin: "20px" }}>
+        <div className="footer-col" style={{ width: "200px", margin: "20px", textAlign: isMobile ? "center" : "left" }}>
           <h3 style={{ fontSize: "1.2rem", marginBottom: "10px", color: "#CDEC76" }}>
             Our Services
           </h3>
@@ -210,7 +236,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="footer-col" style={{ width: "200px", margin: "20px" }}>
+        <div className="footer-col" style={{ width: "200px", margin: "20px", textAlign: isMobile ? "center" : "left" }}>
           <h3 style={{ fontSize: "1.2rem", marginBottom: "10px", color: "#CDEC76" }}>
             Support
           </h3>
@@ -222,27 +248,45 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Kolom 4 - Contact Us */}
-        <div className="footer-col" style={{ width: "250px", margin: "20px" }}>
+        <div className="footer-col" style={{ width: "250px", margin: "20px", textAlign: isMobile ? "center" : "left" }}>
           <h3 style={{ fontSize: "1.2rem", marginBottom: "10px", color: "#CDEC76" }}>
             Contact Us
           </h3>
 
-          <p style={{ margin: "8px 0", display: "flex", alignItems: "center", gap: "8px" }}>
+          <p style={{ 
+            margin: "8px 0", 
+            display: "flex", 
+            alignItems: "center", 
+            gap: "8px",
+            justifyContent: isMobile ? "center" : "flex-start",
+          }}>
             <span className="material-symbols-outlined" style={{ color: "#CDEC76" }}>
               call
             </span>
             +62 217248867
           </p>
 
-          <p style={{ margin: "8px 0", display: "flex", alignItems: "center", gap: "8px" }}>
+          <p style={{ 
+            margin: "8px 0", 
+            display: "flex", 
+            alignItems: "center", 
+            gap: "8px",
+            justifyContent: isMobile ? "center" : "flex-start",
+          }}>
             <span className="material-symbols-outlined" style={{ color: "#CDEC76" }}>
               mail
             </span>
             admin@nda.co.id
           </p>
 
-          <p style={{ margin: "8px 0", display: "flex", alignItems: "flex-start", gap: "8px", lineHeight: "1.5" }}>
+          <p style={{ 
+            margin: "8px 0", 
+            display: "flex", 
+            alignItems: "flex-start", 
+            gap: "8px", 
+            lineHeight: "1.5",
+            justifyContent: isMobile ? "center" : "flex-start",
+          }}>
             <span className="material-symbols-outlined" style={{ color: "#CDEC76" }}>
               location_on
             </span>

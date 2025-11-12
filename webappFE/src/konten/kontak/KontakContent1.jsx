@@ -74,7 +74,7 @@ const KontakContent1 = () => {
             bottom: "0",
             left: "0",
             width: "100%",
-            height: "50%", 
+            height: "70%", 
             background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
             }}
         ></div>
@@ -83,20 +83,20 @@ const KontakContent1 = () => {
             style={{
             position: "absolute",
             top: "70%", 
-            left: "40%",
+            left: "60%",
             transform: "translate(-50%, -50%)",
             color: "#fff",
             fontWeight: "bold",
-            fontSize: "1.5rem",
+            fontSize: "1.3rem",
             textAlign: "left",
+            width : "100%",
             }}
         >
-            Don't Hesitate To Contact Natadana
+            Don't Hesitate To <br />Contact Natadana
             <div
             style={{
                 marginTop: "10px",
-                color: "#FFD700",
-                fontWeight: "bold",
+                color: "#fff",
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
@@ -104,7 +104,7 @@ const KontakContent1 = () => {
                 fontSize: "0.9rem",
             }}
             >
-            Start <span style={{ fontSize: "1rem" }}>→</span>
+            Start To Chart<span style={{ fontSize: "1rem" }}>→</span>
             </div>
         </div>
         </div>
@@ -139,7 +139,7 @@ const KontakContent1 = () => {
               border: "1px solid #003f5c",
               textAlign: "left",
               marginBottom: isMobile ? "10px" : "0",
-              background: "#FFFFFF0A",
+              // background: "#FFFFFF0A",
               height: "250px",
             }}
           >
@@ -148,8 +148,8 @@ const KontakContent1 = () => {
             alt={`${ruang.name} icon`}
             style={{
               marginBottom: "10px",
-              width: "40px",
-              height: "40px",
+              width: "60px",
+              height: "60px",
               background: "#CDEC76",
               borderRadius: "50%", 
               padding: "5px", 

@@ -1,7 +1,19 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import KontakContent1 from "../kontak/KontakContent1";
 
 const Kontak = () => {
+const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  
   useEffect(() => {
     const marquee = document.getElementById("marqueeContact");
     if (!marquee) return;
@@ -32,14 +44,18 @@ const Kontak = () => {
   return (
     <div>
       <div
-         style={{
+        style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           textAlign: "center",
           gap: "20px",
+          // backgroundImage: "url('https://nda.co.id/wp-content/uploads/2025/02/1-1.png')",
+          // backgroundSize: "cover",
+          // backgroundPosition: "center",
+          // backgroundRepeat: "no-repeat",
+          // backgroundColor: "#00202e", 
           background: "linear-gradient(to bottom, #00202e, #003f5c)",
-          
         }}
       >
         <div
@@ -56,17 +72,17 @@ const Kontak = () => {
           Contact Us
         </div>
 
-        <p style={{ fontSize: "4rem", margin: "0", color: "white" }}>About Natadana</p>
+        <p style={{ fontSize: "4rem", margin: "0", color: "white" ,marginTop : "-8px", fontWeight : "bold"}}>Get In Touch With Us</p>
 
         <p
           style={{
             fontSize: "1rem",
-            maxWidth: "600px",
+            maxWidth: "700px",
             margin: "0",
             color: "white",
             marginBottom: "60px",
           }}
-        >          
+        >
           Questions? Ideas? Just want to say hello? Drop us a message—we’d love to hear from you!
         </p>
 
@@ -98,18 +114,20 @@ const Kontak = () => {
             <div
               id="marqueeContact"
               style={{
-                 display: "inline-block",
-                  whiteSpace: "nowrap",
-                  fontSize: "2rem",
-                  color: "#0D2430",
-                  fontWeight: "bold",
-                  fontFamily: "sans-serif",
+                display: "inline-block",
+                whiteSpace: "nowrap",
+                fontSize: "2rem",
+                color: "#0D2430",
+                fontWeight: "bold",
+                fontFamily: "sans-serif",
               }}
             ></div>
           </div>
         </div>
       </div>
-          <KontakContent1 />
+
+      <KontakContent1 />
+
       <div
         style={{
           display: "flex",
@@ -136,63 +154,66 @@ const Kontak = () => {
           src="https://nda.co.id/wp-content/uploads/2025/02/carlos-gil-RVHYGbQt28k-unsplash-scaled.jpg"
           alt="Contact Illustration"
           style={{
-            width: "100%",
+            width: isMobile ? "100%" : "80%",
             maxWidth: "100%",
             borderRadius: "20px",
             objectFit: "cover",
             boxShadow: "0 0 20px rgba(0,0,0,0.4)",
+            height : isMobile ? "400px" : "600px",
           }}
         />
-
-        <div
-          style={{
+            <div
+            style={{
             position: "absolute",
-            bottom: "0",
-            left: "0",
-            width: "100%",
-            height: "50%",
-            borderRadius: "20px",
-            background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
-          }}
+            top: isMobile? "" : "10px",
+            top:  isMobile? "" : "40px",
+            left:  isMobile? "" : "73px",
+            width:  isMobile? "" : "81%",
+            height:  isMobile? "" : "94%", 
+            background: "linear-gradient(to top, rgba(3, 22, 46, 0.7), transparent)",
+            borderRadius : "5%",
+            }}
         ></div>
 
 <div
   style={{
     position: "absolute",
-    bottom: "10px", // turun lebih rendah
-    left: 0,
-    width: "100%", // ambil seluruh lebar parent
-    padding: "0 20px", // beri jarak kiri-kanan
+    bottom: "5px", 
+    left: isMobile ? "" : "70px",
+    width: isMobile ? "" : "80%", 
+    padding: isMobile? "10px" :  "0 50px", 
     color: "#fff",
-    textAlign: "left", // rata kiri
+    textAlign:isMobile? "center" : "left", 
     zIndex: 10,
   }}
 >
   <p style={{ 
     marginBottom: "5px", 
-    fontWeight: "bold", 
-    fontSize: "clamp(0.7rem, 2vw, 0.9rem)" // lebih kecil
+    fontSize:  isMobile? "1rem" : "clamp(0.7rem, 2vw, 0.9rem)" ,
+    marginBottom : "20px",
+    width : "100%",
   }}>
-    We’re glad you’re here...
-  </p>
+
+    We’re glad you’re here. Whether you have a question, feedback, or just want to say hello, we’d love to hear from you. Fill out the form, and our team will get back to you as soon as possible. We’re always here to help!”  </p>
 
   <hr style={{ 
-    width: "100%", // ikut lebar div
-    border: "1px solid #fff", 
-    margin: "5px 0", 
-    opacity: 0.8 
+    width: "100%", 
+    border: "1px solid #ffffffc5", 
+    margin: " 0", 
+    opacity: 0.8, 
+    marginBottom : "5px",
   }} />
 
   <p style={{ 
-    marginTop: "5px", 
-    fontSize: "clamp(0.9rem, 2vw, 1.1rem)", 
+    marginLeft : isMobile ? "" : "90px",
+    fontSize:  isMobile? "1.5rem" : "clamp(0.9rem, 2vw, 1.1rem)", 
     fontWeight: "normal" 
   }}>
     Hudan Maulana
   </p>
   <p style={{ 
-    marginTop: "2px", 
-    fontSize: "clamp(0.7rem, 1.5vw, 0.9rem)", 
+    marginLeft : isMobile ? "" : "90px",    
+    fontSize:  isMobile? "1rem" :  "clamp(0.7rem, 1.5vw, 0.9rem)", 
     fontWeight: "normal", 
     color:"#CDEC76" 
   }}>
@@ -203,16 +224,16 @@ const Kontak = () => {
     src="https://nda.co.id/wp-content/uploads/2025/02/1714114789670.jpg" 
     alt="Gambar Baru"
     style={{
-      width: "clamp(40px, 10vw, 60px)",  // lebih kecil
-      height: "clamp(40px, 10vw, 60px)",
+      width:  isMobile? "60px" :  "clamp(40px, 10vw, 60px)", 
+      height: isMobile? "60px" : "clamp(40px, 10vw, 60px)",
       borderRadius: "50%",
       objectFit: "cover",
-      marginTop: "5px",
+      marginTop:  isMobile ? "3px" : "-55px", 
+      marginLeft : isMobile ? "" : "20px",    
+
     }}
   />
 </div>
-
-
       </div>
         <div
           style={{

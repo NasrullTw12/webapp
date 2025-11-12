@@ -3,9 +3,20 @@ import Card from "../../../components/Card";
 
 const HomeContent4 = () => {
   const [animate, setAnimate] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setAnimate(true);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const cardStyle = {
@@ -60,7 +71,7 @@ const HomeContent4 = () => {
         <div
           style={{
             display: "inline-block",
-            color: "black",
+            color: "#0D2430",
             padding: "10px 20px",
             borderRadius: "20px",
             border: "2px solid #CDEC76",
@@ -70,23 +81,20 @@ const HomeContent4 = () => {
         >
           Benefit
         </div>
-        <p style={{ fontSize: "4rem", margin: "0", color: "black" }}>
+        <p style={{ fontSize : isMobile ? "2rem" : "3.5rem", margin: "0", color: "#0D2430"}}>
           4 Game-Changing Benefits You Get When You Work With Us
         </p>
         <p
           style={{
-            fontSize: "1.2rem",
+            fontSize: isMobile ? "1rem" : "1rem",
             maxWidth: "600px",
-            margin: "0",
-            color: "black",
+            color: "#0D2430",
           }}
         >
-          Unlock seamless solutions, expert guidance, and innovative strategies
-          to elevate your success.
+          Unlock seamless solutions, expert guidance, and innovative strategies to elevate your success.
         </p>
       </div>
 
-      {/* Grid Section */}
       <section id = "re"
         style={{
           background: "white",
@@ -101,7 +109,6 @@ const HomeContent4 = () => {
           minHeight: "700px",
         }}
       >
-        {/* Card 1 */}
         <div
           style={{
             ...cardStyle,
@@ -123,7 +130,6 @@ const HomeContent4 = () => {
           </p>
         </div>
 
-        {/* Card 2 */}
         <div
           style={{
             ...cardStyle,
@@ -145,7 +151,6 @@ const HomeContent4 = () => {
           </p>
         </div>
 
-        {/* Card 3 (Image) */}
         <div
           style={{
             ...cardStyle,

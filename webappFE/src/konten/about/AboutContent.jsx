@@ -55,7 +55,7 @@ const AboutContent = () => {
         About Us
       </div>
 
-      <p style={{ fontSize: "4rem", margin: "0", color: "white" }}>About Natadana</p>
+      <p style={{ fontSize: "4rem", margin: "0", color: "white",marginTop : "-8px", fontWeight : "bold" }}>About Natadana</p>
 
       <p
         style={{

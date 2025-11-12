@@ -3,6 +3,8 @@ import React, { useEffect, useState, useRef } from "react";
 const CardGrid = ({ cardData, isMobile }) => {
   const cardRefs = useRef([]);
   const [visibleCards, setVisibleCards] = useState([]);
+  const [activeIdx, setActiveIdx] = useState(null);
+  const [desktopShowIdx, setDesktopShowIdx] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,65 +33,115 @@ const CardGrid = ({ cardData, isMobile }) => {
         padding: isMobile ? "0 20px" : "0 80px",
       }}
     >
-      {cardData.map((card, idx) => (
-        <div
-          key={idx}
-          ref={(el) => (cardRefs.current[idx] = el)}
-          data-index={idx}
-          style={{
-            position: "relative",
-            width: "100%",
-            height: "400px",
-            borderRadius: "15px",
-            overflow: "hidden",
-            boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
-            cursor: "default",
-            transform: visibleCards.includes(idx) ? "translateY(0)" : "translateY(60px)",
-            transition: "transform 0.6s ease",
-          }}
-        >
-          {/* Gambar */}
+      {cardData.map((card, idx) => {
+        return (
           <div
+            key={idx}
+            ref={(el) => (cardRefs.current[idx] = el)}
+            data-index={idx}
             style={{
-              backgroundImage: `url(${card.image})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
+              position: "relative",
               width: "100%",
-              height: "100%",
+              height: "400px",
+              borderRadius: "15px",
+              overflow: "hidden",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+              cursor: isMobile ? "pointer" : "default",
+              transform: visibleCards.includes(idx) ? "translateY(0)" : "translateY(60px)",
+              transition: "transform 0.6s ease",
+              background: "#222",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-end",
             }}
-          ></div>
-
-          {/* Overlay */}
-          <div
-            style={{
-              position: "absolute",
-              bottom: 0,
-              left: 0,
-              right: 0,
-              background: "rgba(0, 0, 0, 0.5)",
-              color: "#fff",
-              padding: "20px",
-            }}
+            onClick={() => isMobile && setActiveIdx(idx)}
+            onMouseEnter={() => !isMobile && setDesktopShowIdx(idx)}
+            onMouseLeave={() => !isMobile && setDesktopShowIdx(null)}
           >
-            <h3 style={{ margin: 0 }}>{card.title}</h3>
-
-            <p
+            <div
               style={{
-                marginTop: "10px",
-                fontSize: "0.9rem",
-                opacity: visibleCards.includes(idx) ? 1 : 0,
-                transform: visibleCards.includes(idx)
-                  ? "translateY(0)"
-                  : "translateY(20px)",
-                transition: "all 0.5s ease",
-                transitionDelay: visibleCards.includes(idx) ? "0.3s" : "0s",
+                backgroundImage: `url(${card.image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                zIndex: 1,
               }}
-            >
-              {card.description}
-            </p>
+            ></div>
+
+            <div style={{ position: "relative", zIndex: 2, width: "100%", background: "rgba(0,0,0,0.5)", borderRadius: "0 0 15px 15px", padding: "20px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <h3
+                style={{
+                  margin: 0,
+                  transition: "transform 0.4s cubic-bezier(.4,2,.3,1)",
+                  transform:
+                    (isMobile && activeIdx === idx) || (!isMobile && desktopShowIdx === idx)
+                      ? "translateY(-10px)"
+                      : "translateY(0)",
+                  zIndex: 3,
+                }}
+              >
+                {card.title}
+              </h3>
+
+              {/* Mobile: show description only if activeIdx === idx; Desktop: show if desktopShowIdx === idx */}
+              {isMobile ? (
+                <div
+                  style={{
+                    maxHeight: activeIdx === idx ? "120px" : "0px",
+                    opacity: activeIdx === idx ? 1 : 0,
+                    overflow: "hidden",
+                    transition: activeIdx === idx
+                      ? "max-height 0.4s cubic-bezier(.4,2,.3,1), opacity 0.3s"
+                      : "max-height 0.4s cubic-bezier(.4,2,.3,1)",
+                    width: "100%",
+                    marginTop: activeIdx === idx ? "10px" : "0px",
+                    textAlign: "center",
+                    pointerEvents: activeIdx === idx ? "auto" : "none",
+                    background: "transparent",
+                  }}
+                >
+                  <p style={{ margin: 0, fontSize: "1rem", transition: "opacity 0.3s", opacity: activeIdx === idx ? 1 : 0 }}>{card.description}</p>
+                  <button
+                    style={{
+                      marginTop: "18px",
+                      background: "#CDEC76",
+                      color: "#0C2B4E",
+                      border: "none",
+                      borderRadius: "8px",
+                      padding: "8px 18px",
+                      fontWeight: "bold",
+                      cursor: "pointer",
+                    }}
+                    onClick={(e) => { e.stopPropagation(); setActiveIdx(null); }}
+                  >Tutup</button>
+                </div>
+              ) : (
+                <div
+                  style={{
+                    maxHeight: desktopShowIdx === idx ? "120px" : "0px",
+                    opacity: desktopShowIdx === idx ? 1 : 0,
+                    overflow: "hidden",
+                    transition: desktopShowIdx === idx
+                      ? "max-height 0.4s cubic-bezier(.4,2,.3,1), opacity 0.3s"
+                      : "max-height 0.4s cubic-bezier(.4,2,.3,1)",
+                    width: "100%",
+                    marginTop: desktopShowIdx === idx ? "10px" : "0px",
+                    textAlign: "center",
+                    background: "transparent",
+                    pointerEvents: desktopShowIdx === idx ? "auto" : "none",
+                  }}
+                >
+                  <p style={{ margin: 0, fontSize: "1rem", transition: "opacity 0.3s", opacity: desktopShowIdx === idx ? 1 : 0 }}>{card.description}</p>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </section>
   );
 };
@@ -100,19 +152,19 @@ const HomeContent3 = () => {
 
   const cardData = [
     {
-      title: "Digital Innovation",
+      title: "Data Security",
       image: "https://nda.co.id/wp-content/uploads/2025/02/8-23.jpg",
-      description: "Innovative solutions to grow your business digitally.",
+      description: "Data is stored on a secure server that can be accessed any time.",
     },
     {
-      title: "Fiduciary Excellence",
+      title: "Financial Solution",
       image: "https://nda.co.id/wp-content/uploads/2025/02/11-22.jpg",
-      description: "Reliable fiduciary services to protect your assets.",
+      description: "Partnership with Financial institutions to develop new market",
     },
     {
-      title: "Financial Growth",
+      title: "Monitoring Technology",
       image: "https://nda.co.id/wp-content/uploads/2025/02/10-22.jpg",
-      description: "Smart financial strategies to maximize growth.",
+      description: "The entire data recording process can be monitored by clients with real-time data",
     },
   ];
 
@@ -139,7 +191,7 @@ const HomeContent3 = () => {
         backgroundColor: "#fff",
       }}
     >
-      <section
+      <section 
         style={{
           display: "flex",
           flexDirection: isMobile ? "column" : "row",
@@ -159,6 +211,10 @@ const HomeContent3 = () => {
             opacity: animate ? 1 : 0,
             transform: animate ? "translateX(0)" : "translateX(-50px)",
             transition: "all 1s ease",
+            textAlign: isMobile ? "center" : "left", 
+            display: "flex",
+            flexDirection: "column",
+            alignItems: isMobile ? "center" : "flex-start", 
           }}
         >
           <div
@@ -173,12 +229,20 @@ const HomeContent3 = () => {
           >
             Our Services
           </div>
-          <p style={{ color: "black", fontSize : isMobile ? "2rem" : "3.5rem" }}>
-            Fiduciary & Technology Solutions To Protect, Manage, And Grow Your
-            Business
+          <p
+            style={{
+              color: "black",
+              fontWeight : "bold",
+              fontSize: isMobile ? "2rem" : "3.5rem",
+              lineHeight: "1.2",
+              marginTop: "25px",
+              textAlign: isMobile ? "center" : "left", 
+            }}
+          >
+            Fiduciary & Technology 
+            Solutions To Protect, Manage,And Grow Your Business
           </p>
         </div>
-
         <div
           style={{
             flex: isMobile ? "1 1 100%" : "0 0 35%",
@@ -188,11 +252,11 @@ const HomeContent3 = () => {
             opacity: animate ? 1 : 0,
             transform: animate ? "translateX(0)" : "translateX(50px)",
             transition: "all 1s ease 0.3s",
-            marginTop: isMobile ? "40px" : "150px",
+            marginTop: isMobile ? "-50px" : "150px",
             textAlign: isMobile ? "center" : "left",
           }}
         >
-          <p style={{ fontSize: "1.5rem", color: "black" }}>
+          <p style={{ fontSize: "1rem", color: "black" }}>
             Innovative fiduciary and financial technology solutions designed to
             simplify management, enhance security, and drive growth.
           </p>
@@ -210,6 +274,7 @@ const HomeContent3 = () => {
               alignItems: "center",
               gap: "10px",
               marginTop: "20px",
+              height: "50px",
             }}
             className="get-started-button"
           >

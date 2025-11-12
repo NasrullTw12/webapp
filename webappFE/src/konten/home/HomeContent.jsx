@@ -63,16 +63,15 @@ const HomeContent = () => {
               color: "#CDEC76",
               padding: "10px 20px",
               borderRadius: "20px",
-              border: "2px solid",
-              backgroundColor: "#052c2dff",
-              fontWeight: "bold",
+              border: "1px solid ",
+              backgroundColor: "transparent",
               marginBottom: "20px",
               marginTop: isMobile ? "-100px" : "0px",
             }}
           >
-            Welcome to natadana
+            Welcome To Natadana
           </div>
-          <h1 style={{ fontSize: "3rem", margin: 0, lineHeight: 1.2 }}>
+          <h1 style={{ fontSize: isMobile ? "3rem" : "4rem", margin: 0, lineHeight: 1   }}>
             Your Trusted One-Stop Solution<br />For Fiduciary & Technology Needs
           </h1>
           <p style={{ margin: "20px 0" }}>
@@ -80,7 +79,7 @@ const HomeContent = () => {
           </p>
               <Link 
                 to="/contact"
-                className="get-started-button"
+                className="get-started-button1"
               >
                 Let's Get Started
                 <svg
@@ -101,7 +100,7 @@ const HomeContent = () => {
               </Link>
                <style>
               {`
-                .get-started-button {
+                .get-started-button1 {
                     padding: 12px 25px;
                     border-radius: 25px;
                     border: none;
@@ -116,10 +115,10 @@ const HomeContent = () => {
                     transition: all 0.3s ease;
                     width: fit-content;
                   }
-                  .get-started-button:hover {
+                  .get-started-button1:hover {
                     background-color: white;
                   }
-                  .get-started-button:hover .arrow {
+                  .get-started-button1:hover .arrow {
                     transform: translateX(5px);
                     transition: transform 0.3s ease;
                   }
@@ -148,12 +147,15 @@ const HomeContent = () => {
               left: "20px",
               backgroundColor: "transparent",
               color: "#fff",
-              fontWeight: "bold",
               lineHeight: "1.5",
               fontSize: isMobile ? "1.2rem" : "1rem",
             }}
           >
-            <span style={{ color: "#CDEC76", marginRight: "5px" }}>✓</span>
+            <span style={{  background: "#CDEC76",
+              borderRadius: "50%", 
+              padding: "5px", 
+              objectFit: "contain",
+              color : "#00202e", marginRight: "5px" }}>✓</span>
             Guiding Financial Journey<br />
             To Elevating Your Business<br />
             Destiny
@@ -162,7 +164,7 @@ const HomeContent = () => {
           <img
             src="/images/layar.png"
             alt="Layar"
-            style={{ maxWidth: "100%", height: "auto", borderRadius: "10px" }}
+            style={{ maxWidth: "100%", height: "auto", borderRadius: "10px" , marginTop : "10px" }}
           />
 
           <div
@@ -181,8 +183,8 @@ const HomeContent = () => {
               width: "fit-content",
             }}
           >
-            <span style={{ fontSize: isMobile ? "3rem" : "2.5rem", display: "block" }}>{index}+</span>
-            <p style={{ fontSize: isMobile ? "1.1rem" : "1rem", margin: 0 }}>Years of experience</p>
+            <span style={{ fontSize: isMobile ? "3rem" : "2.5rem", display: "block", color: "#28464e" }}>{index}+</span>
+            <p style={{ fontSize: isMobile ? "1.1rem" : "1rem", margin: 0, color: "#28464e" }}>Years of experience</p>
           </div>
         </div>
       </section>
