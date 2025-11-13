@@ -34,7 +34,6 @@ const HomeContent = () => {
         style={{
           display: "flex",
           flexDirection: isMobile ? "column" : "row",
-          alignItems: "center",
           justifyContent: "space-between",
           padding: 0,
           margin: 0,
@@ -45,7 +44,6 @@ const HomeContent = () => {
           position: "relative",
         }}
       >
-        {/* Kiri: Teks besar */}
         <div
           style={{
             flex: 1,
@@ -67,19 +65,21 @@ const HomeContent = () => {
               backgroundColor: "transparent",
               marginBottom: "20px",
               marginTop: isMobile ? "-100px" : "0px",
+              marginLeft : isMobile ? "13%" : "0px",
             }}
           >
             Welcome To Natadana
           </div>
-          <h1 style={{ fontSize: isMobile ? "3rem" : "4rem", margin: 0, lineHeight: 1   }}>
+          <h1 style={{ fontSize: isMobile ? "3rem" : "4rem", margin: 0, lineHeight: 1, width : "100%", marginLeft : isMobile ? "2%" :"" , textAlign : isMobile ? "center" : "left"  }}>
             Your Trusted One-Stop Solution<br />For Fiduciary & Technology Needs
           </h1>
-          <p style={{ margin: "20px 0" }}>
+          <p style={{ margin: "20px 0",textAlign: isMobile ? "center" : "" }}>
             Simplifying fiduciary services and financial technology with seamless, smart, and secure solutions—built for your success
           </p>
               <Link 
                 to="/contact"
-                className="get-started-button1"
+                className="get-started-button1" style={{marginLeft : isMobile ? "18%" : "0",
+}}
               >
                 Let's Get Started
                 <svg
@@ -106,7 +106,6 @@ const HomeContent = () => {
                     border: none;
                     background-color: #CDEC76;
                     color: #0D2430;
-                    font-weight: bold;
                     cursor: pointer;
                     display: flex;
                     align-items: center;
@@ -130,25 +129,27 @@ const HomeContent = () => {
           style={{
             flex: 1,
             display: "flex",
-            justifyContent: "center",
             alignItems: "center",
             position: "relative",
             opacity: animate ? 1 : 0,
             transform: animate ? "scale(1)" : "scale(0.5)",
             transition: "all 1s ease 0.5s",
-            padding: "50px",
-            marginTop: isMobile ? "20px" : "0",
+            // padding: "50px",
+            marginTop: isMobile ? "60px" : "0",
+            paddingTop : isMobile? "" : "50px",
           }}
         >
           <p
             style={{
               position: "absolute",
-              top: isMobile ? "-12px" : "20px",
+              top: isMobile ? "-10px" : "20px",
               left: "20px",
               backgroundColor: "transparent",
               color: "#fff",
               lineHeight: "1.5",
               fontSize: isMobile ? "1.2rem" : "1rem",
+              visibility : isMobile ? "hidden" : "visible",
+              paddingTop : isMobile? "" : "50px",
             }}
           >
             <span style={{  background: "#CDEC76",
@@ -164,27 +165,27 @@ const HomeContent = () => {
           <img
             src="/images/layar.png"
             alt="Layar"
-            style={{ maxWidth: "100%", height: "auto", borderRadius: "10px" , marginTop : "10px" }}
+            style={{ maxWidth: "100%", height: "auto", borderRadius: "10px" , marginTop : isMobile? "-100px" : "10px" }}
           />
 
           <div
             style={{
               position: "absolute",
-              top: isMobile ? "210px" : "300px",
-              right: isMobile ? "2px" : "20px",
+              marginTop : isMobile ? "30px" : "250px" ,
+              right: isMobile ? "50px" : "150px",
               backgroundColor: "#CDEC76",
               color: "#0D2430",
               padding: "15px 25px",
-              borderRadius: "12px",
-              fontWeight: "bold",
-              fontSize: isMobile ? "1.4rem" : "1.2rem",
+              borderRadius: "25px",
+              fontSize: isMobile ? "1rem" : "1.2rem",
               boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
               textAlign: "center",
               width: "fit-content",
+              height : "fit-content",
             }}
           >
-            <span style={{ fontSize: isMobile ? "3rem" : "2.5rem", display: "block", color: "#28464e" }}>{index}+</span>
-            <p style={{ fontSize: isMobile ? "1.1rem" : "1rem", margin: 0, color: "#28464e" }}>Years of experience</p>
+            <span style={{ fontSize: isMobile ? "2rem" : "2.5rem", display: "block", color: "#28464e", fontWeight: "bold"}}>{index}+</span>
+            <p style={{ fontSize: isMobile ? "0.7rem" : "1rem", margin: 0, color: "#28464e" }}>Years of experience</p>
           </div>
         </div>
       </section>

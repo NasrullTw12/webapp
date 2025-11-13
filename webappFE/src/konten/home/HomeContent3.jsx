@@ -53,6 +53,7 @@ const CardGrid = ({ cardData, isMobile }) => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "flex-end",
+              backgroundColor : "#FBF9F7",
             }}
             onClick={() => isMobile && setActiveIdx(idx)}
             onMouseEnter={() => !isMobile && setDesktopShowIdx(idx)}
@@ -72,7 +73,7 @@ const CardGrid = ({ cardData, isMobile }) => {
               }}
             ></div>
 
-            <div style={{ position: "relative", zIndex: 2, width: "100%", background: "rgba(0,0,0,0.5)", borderRadius: "0 0 15px 15px", padding: "20px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <div style={{ position: "relative", zIndex: 2, width: "80%", background:"#0D2430", borderRadius: "0 25px 0px 15px", padding: "20px", display: "flex", flexDirection: "column", alignItems: "center" }}>
               <h3
                 style={{
                   margin: 0,
@@ -86,8 +87,11 @@ const CardGrid = ({ cardData, isMobile }) => {
               >
                 {card.title}
               </h3>
-
-              {/* Mobile: show description only if activeIdx === idx; Desktop: show if desktopShowIdx === idx */}
+               <img
+                  src="https://nda.co.id/wp-content/uploads/2025/02/ak3.png"
+                  alt="Left Card"
+                  style={{ width: "100%", height: "100%" }}
+                />
               {isMobile ? (
                 <div
                   style={{
@@ -101,10 +105,10 @@ const CardGrid = ({ cardData, isMobile }) => {
                     marginTop: activeIdx === idx ? "10px" : "0px",
                     textAlign: "center",
                     pointerEvents: activeIdx === idx ? "auto" : "none",
-                    background: "transparent",
+                    backgroundColor : "#0D2430",
                   }}
                 >
-                  <p style={{ margin: 0, fontSize: "1rem", transition: "opacity 0.3s", opacity: activeIdx === idx ? 1 : 0 }}>{card.description}</p>
+                  <p style={{ margin: 0, fontSize: "1rem", transition: "opacity 0.3s", opacity: activeIdx === idx ? 1 : 0 , backgroundColor : "#0D2430" }}>{card.description}</p>
                   <button
                     style={{
                       marginTop: "18px",
@@ -185,7 +189,7 @@ const HomeContent3 = () => {
     <div
       style={{
         width: "100%",
-        margin: 0,
+        marginTop : isMobile ? "-220px" : "-80px",
         padding: "80px 0",
         fontFamily: "sans-serif",
         backgroundColor: "#fff",
@@ -197,14 +201,14 @@ const HomeContent3 = () => {
           flexDirection: isMobile ? "column" : "row",
           justifyContent: "space-between",
           alignItems: isMobile ? "center" : "flex-start",
-          padding: "0 80px",
+          padding: isMobile ? "0 10px" : "0 80px",
           marginBottom: "80px",
           gap: "50px",
         }}
       >
         <div
           style={{
-            flex: isMobile ? "1 1 100%" : "0 0 65%",
+            flex: isMobile ? "1 1 60%" : "0 0 60%",
             fontSize: "1.1rem",
             lineHeight: 1.8,
             color: "#333",
@@ -221,10 +225,12 @@ const HomeContent3 = () => {
             style={{
               display: "inline-block",
               color: "black",
-              padding: "10px 20px",
+              padding: "1px 30px",
               borderRadius: "20px",
-              border: "2px solid #CDEC76",
-              backgroundColor: "#e9f1b6ff",
+              border: "2px solid #d2d3d2f5",
+              backgroundColor: "#F7FFDF",
+              color : "#00202e",
+             fontSize : "1rem",            
             }}
           >
             Our Services
@@ -233,14 +239,15 @@ const HomeContent3 = () => {
             style={{
               color: "black",
               fontWeight : "bold",
-              fontSize: isMobile ? "2rem" : "3.5rem",
+              fontSize: isMobile ? "2rem" : "3rem",
               lineHeight: "1.2",
               marginTop: "25px",
+              paddingLeft : "2px",
               textAlign: isMobile ? "center" : "left", 
             }}
           >
-            Fiduciary & Technology 
-            Solutions To Protect, Manage,And Grow Your Business
+            Fiduciary & Technology <br />
+            Solutions To Protect, Manage,<br />And Grow Your Business
           </p>
         </div>
         <div
@@ -252,11 +259,11 @@ const HomeContent3 = () => {
             opacity: animate ? 1 : 0,
             transform: animate ? "translateX(0)" : "translateX(50px)",
             transition: "all 1s ease 0.3s",
-            marginTop: isMobile ? "-50px" : "150px",
+            marginTop: isMobile ? "-15px" : "70px",
             textAlign: isMobile ? "center" : "left",
           }}
         >
-          <p style={{ fontSize: "1rem", color: "black" }}>
+          <p style={{ fontSize: "1rem", color: "black",marginBottom : "40px" }}>
             Innovative fiduciary and financial technology solutions designed to
             simplify management, enhance security, and drive growth.
           </p>
@@ -267,13 +274,12 @@ const HomeContent3 = () => {
               border: "none",
               backgroundColor: "#CDEC76",
               color: "#0C2B4E",
-              fontWeight: "bold",
               cursor: "pointer",
               transition: "all 0.3s ease",
               display: "inline-flex",
               alignItems: "center",
               gap: "10px",
-              marginTop: "20px",
+              marginTop: isMobile? "-5px" : "20px",
               height: "50px",
             }}
             className="get-started-button"

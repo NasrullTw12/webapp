@@ -71,17 +71,19 @@ const HomeContent4 = () => {
         <div
           style={{
             display: "inline-block",
-            color: "#0D2430",
-            padding: "10px 20px",
+            color: "black",
+            padding: "1px 30px",
             borderRadius: "20px",
-            border: "2px solid #CDEC76",
-            backgroundColor: "#CDEC76",
-            marginBottom: "0",
+            border: "2px solid #d2d3d2f5",
+            backgroundColor: "#F7FFDF",
+            color : "#00202e",
+            fontSize : "1rem",      
+            marginBottom: "10px",  
           }}
         >
           Benefit
         </div>
-        <p style={{ fontSize : isMobile ? "2rem" : "3.5rem", margin: "0", color: "#0D2430"}}>
+        <p style={{ fontSize : isMobile ? "2rem" : "3rem", margin: "0", color: "#0D2430", width : isMobile ? "100%" : "80%", fontWeight : "bold", lineHeight : isMobile ? "1" :"2"}}>
           4 Game-Changing Benefits You Get When You Work With Us
         </p>
         <p

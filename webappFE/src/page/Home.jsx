@@ -10,7 +10,7 @@ const Home = () => {
       <HomeContent />
       <HomeContent1 />
       <HomeContent2 />
-      <HomeContent3 />
+      <HomeContent3/>
       <HomeContent4 />
     </div>
   );
