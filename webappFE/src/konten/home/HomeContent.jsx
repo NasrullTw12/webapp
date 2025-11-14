@@ -35,7 +35,7 @@ const HomeContent = () => {
           display: "flex",
           flexDirection: isMobile ? "column" : "row",
           justifyContent: "space-between",
-          padding: 0,
+          padding: isMobile ? "0px" : "50px",
           margin: 0,
           background: "linear-gradient(to bottom, #00202e, #003f5c)",
           minHeight: "500px",
@@ -139,28 +139,64 @@ const HomeContent = () => {
             paddingTop : isMobile? "" : "50px",
           }}
         >
-          <p
+          <div
             style={{
+              display: "flex",
+              alignItems: "flex-start",
+              gap: "10px",
               position: "absolute",
-              top: isMobile ? "-10px" : "20px",
+              top: isMobile ? "-10px" : "70px",
               left: "20px",
               backgroundColor: "transparent",
-              color: "#fff",
-              lineHeight: "1.5",
-              fontSize: isMobile ? "1.2rem" : "1rem",
-              visibility : isMobile ? "hidden" : "visible",
-              paddingTop : isMobile? "" : "50px",
             }}
           >
-            <span style={{  background: "#CDEC76",
-              borderRadius: "50%", 
-              padding: "5px", 
-              objectFit: "contain",
-              color : "#00202e", marginRight: "5px" }}>✓</span>
-            Guiding Financial Journey<br />
-            To Elevating Your Business<br />
-            Destiny
-          </p>
+             <button
+                aria-label="Select consultation"
+                style={{
+                  width: "18px",
+                  height: "18px",
+                  borderRadius: "50%",
+                  background: "#CDEC76",
+                  marginTop : "5px",
+                  border: "none",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "#0C2B4E",
+                  // cursor: "pointer",
+                  alignSelf: isMobile ? "center" : "flex-start",
+                  visibility : isMobile ? "hidden" : "visible",
+                }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#0C2B4E"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </button>
+            <p
+              style={{
+                backgroundColor: "transparent",
+                color: "#fff",
+                lineHeight: "1.5",
+                fontSize: isMobile ? "1.2rem" : "1rem",
+                visibility: isMobile ? "hidden" : "visible",
+                margin: "0",
+              }}
+            >
+              Guiding Financial Journey<br />
+              To Elevating Your Business<br />
+              Destiny
+            </p>
+          </div>
 
           <img
             src="/images/layar.png"

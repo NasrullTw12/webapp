@@ -38,10 +38,12 @@ const HomeContent1 = () => {
       style={{
         display: "flex",
         flexDirection: isMobile ? "column" : "row",
+        alignItems: "center",
+        justifyContent: "center",
         width: "100%",
         boxSizing: "border-box",
         background: "linear-gradient(to bottom, #003f5c, #fff)",
-        padding: "20px",
+        padding: isMobile? "20px" : "50px",
         gap: "20px",
       }}
     >
@@ -127,7 +129,6 @@ const HomeContent1 = () => {
            style={{
               flex: isMobile ? "0 0 100%" : "1 1 0",
               maxWidth: isMobile ? "100%" : "calc(33% - 10px)",
-              background: "linear-gradient(to bottom, #00202e, #003f5c)",
               borderRadius: "35px",
               display: "flex",
               flexDirection: "column",
@@ -145,12 +146,12 @@ const HomeContent1 = () => {
             src={ruang.icon}
             alt={`${ruang.name} icon`}
             style={{
-              marginBottom: "10px",
-              width: "60px",
-              height: "60px",
+              // marginBottom: "10px",
+              width: "70px",
+              height: "80px",
               background: "#CDEC76",
               borderRadius: "50%", 
-              padding: "5px", 
+              padding: "10px", 
               objectFit: "contain" 
             }}            
             />

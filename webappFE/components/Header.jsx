@@ -27,7 +27,7 @@ const Header = () => {
     <header
       style={{
         backgroundColor: "#00202e",
-        padding: "50px 20px",
+        padding: isMobile ? "50px 20px" : "0",
         backgroundImage: `
           linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 2px),
           linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 2px)
@@ -43,13 +43,14 @@ const Header = () => {
           maxWidth: "1350px",
           margin: "0 auto",
           position: "relative",
+          padding : isMobile ? "0" : "50px",
         }}
       >
         <div>
           <img src="/images/logoPerusahaan.png" alt="Logo" style={{ height: isMobile ? "120" :"80px" }} />
         </div>
 
-        <nav className="desktop-menu-wrapper">
+        <nav className="desktop-menu-wrapper" style={{ paddingLeft : "100px" , paddingRight : "100px"}}>
           <div className="desktop-menu">
             {menuItems.map((item, index) => (
               <Link
@@ -57,7 +58,7 @@ const Header = () => {
                 to={item.path}
                 style={{
                   color: location.pathname === item.path ? "#CDEC76" : "#fff", 
-                  padding: "10px 80px 20px 50px",
+                  padding : "50px",
                   textDecoration: "none",
                   borderLeft: index !== 0 ? "1px solid #1b191918" : "none",
                   transition: "color 0.3s",
@@ -72,10 +73,10 @@ const Header = () => {
         <div className="desktop-button">
           <Link 
             to="/contact"
-            className="get-started-button"
+            className="get-started-button" 
           >
             Get a Quote
-            <svg
+            {/* <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
@@ -89,34 +90,59 @@ const Header = () => {
             >
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="12 5 19 12 12 19" />
-            </svg>
+                <circle cx="100" cy="100" r="80" fill="#4CAF50" stroke="black" stroke-width="3"/>
+
+            </svg> */}
+              <div className="circle-arrow">&#8594;</div>
+            
+
           </Link>
-              <style>
-              {`
-                .get-started-button {
-                    padding: 12px 25px;
-                    border-radius: 25px;
-                    background-color: #ffff;
-                    color: #0C2B4E;
-                    cursor: pointer;
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    text-decoration: none;
-                    transition: all 0.3s ease;
-                    width: fit-content;
-                  }
-                  .get-started-button:hover {
-                    background-color: transparent;
-                    color : white;
-                    border : 1px solid white;
-                  }
-                  .get-started-button:hover .arrow {
-                    transform: translateX(5px);
-                    transition: transform 0.3s ease;
-                  }
-              `}
-          </style>
+           <style>
+            {`.get-started-button {
+    padding: 12px 25px;
+    border-radius: 25px;
+    background-color: #fff;
+    color: #0C2B4E;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.get-started-button:hover {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+/* Lingkaran panah */
+.circle-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+   
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    height : 16px;
+    padding-bottom : 4px
+}
+
+/* Saat hover tombol */
+.get-started-button:hover .circle-arrow {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    transform: translateX(5px);
+}
+`}
+           </style>
         </div>
 
         <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
@@ -154,8 +180,9 @@ const Header = () => {
             align-items: center;
             border-radius: 25px;
             overflow: hidden;
-            border: 1px solid #383232ff;
+            border: 1px solid #FFFFFF21;
             height: 60px;
+            background : #FFFFFF0A;
           }
 
           .desktop-menu a {

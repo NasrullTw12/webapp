@@ -72,7 +72,7 @@ const [isMobile, setIsMobile] = useState(false);
           Contact Us
         </div>
 
-        <p style={{ fontSize: "4rem", margin: "0", color: "white" ,marginTop : "-8px", fontWeight : "bold"}}>Get In Touch With Us</p>
+        <p style={{ fontSize: "4rem", margin: "0", color: "white" ,marginTop : "-8px", fontWeight : "bold", lineHeight : "1"}}>Get In Touch With Us</p>
 
         <p
           style={{
@@ -81,6 +81,7 @@ const [isMobile, setIsMobile] = useState(false);
             margin: "0",
             color: "white",
             marginBottom: "60px",
+            padding : "10px",
           }}
         >
           Questions? Ideas? Just want to say hello? Drop us a message—we’d love to hear from you!
@@ -132,12 +133,14 @@ const [isMobile, setIsMobile] = useState(false);
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
-          padding: "60px 20px",
+          alignItems: isMobile ? "center" : "stretch",
+          padding: isMobile ? "60px 20px" : "60px 50px",
           background: "#ffff",
           color: "white",
-          gap: "60px",
+          gap: "5px",
           flexWrap: "wrap",
+          flexDirection: isMobile ? "column-reverse" : "row",
+          minHeight: isMobile ? "auto" : "600px",
         }}
       >
       <div
@@ -145,6 +148,7 @@ const [isMobile, setIsMobile] = useState(false);
           position: "relative",
           flex: "1",
           minWidth: "300px",
+          height: isMobile ? "auto" : "100%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -159,81 +163,85 @@ const [isMobile, setIsMobile] = useState(false);
             borderRadius: "20px",
             objectFit: "cover",
             boxShadow: "0 0 20px rgba(0,0,0,0.4)",
-            height : isMobile ? "400px" : "600px",
+            height: isMobile ? "400px" : "570px",
+            // maxHeight: "200%",
           }}
         />
             <div
             style={{
             position: "absolute",
-            top: isMobile? "" : "10px",
-            top:  isMobile? "" : "40px",
-            left:  isMobile? "" : "73px",
-            width:  isMobile? "" : "81%",
-            height:  isMobile? "" : "94%", 
-            background: "linear-gradient(to top, rgba(3, 22, 46, 0.7), transparent)",
+            top:  isMobile? "25px" : "70px",
+            left:  isMobile? "1px" : "73px",
+            width:  isMobile? "100%" : "81%",
+            height:  isMobile? "94%" : "94%", 
+            background: "linear-gradient(to top, rgba(1, 7, 15, 0.97), transparent)",
             borderRadius : "5%",
             }}
         ></div>
+        <div
+          style={{
+            position: "absolute",
+            bottom: "5px", 
+            // left: isMobile ? "" : "70px",
+            width: isMobile ? "" : "80%", 
+            padding: isMobile? "10px" :  "0 50px", 
+            color: "#fff",
+            textAlign:isMobile? "center" : "left", 
+            zIndex: 10,
+          }}
+        >
+          <p style={{ 
+            marginBottom: "5px", 
+            fontSize:  isMobile? "1rem" : "clamp(0.7rem, 2vw, 0.9rem)" ,
+            marginBottom : "20px",
+            width : "100%",
+          }}>
 
-<div
-  style={{
-    position: "absolute",
-    bottom: "5px", 
-    left: isMobile ? "" : "70px",
-    width: isMobile ? "" : "80%", 
-    padding: isMobile? "10px" :  "0 50px", 
-    color: "#fff",
-    textAlign:isMobile? "center" : "left", 
-    zIndex: 10,
-  }}
->
-  <p style={{ 
-    marginBottom: "5px", 
-    fontSize:  isMobile? "1rem" : "clamp(0.7rem, 2vw, 0.9rem)" ,
-    marginBottom : "20px",
-    width : "100%",
-  }}>
+            We’re glad you’re here. Whether you have a question, feedback, or just want to say hello, we’d love to hear from you. Fill out the form, and our team will get back to you as soon as possible. We’re always here to help!”  </p>
 
-    We’re glad you’re here. Whether you have a question, feedback, or just want to say hello, we’d love to hear from you. Fill out the form, and our team will get back to you as soon as possible. We’re always here to help!”  </p>
+          <hr style={{ 
+            width: "100%", 
+            border: "1px solid #ffffffc5", 
+            margin: " 0", 
+            opacity: 0.8, 
+            marginBottom : "5px",
+          }} />
 
-  <hr style={{ 
-    width: "100%", 
-    border: "1px solid #ffffffc5", 
-    margin: " 0", 
-    opacity: 0.8, 
-    marginBottom : "5px",
-  }} />
-
-  <p style={{ 
-    marginLeft : isMobile ? "" : "90px",
-    fontSize:  isMobile? "1.5rem" : "clamp(0.9rem, 2vw, 1.1rem)", 
-    fontWeight: "normal" 
-  }}>
-    Hudan Maulana
-  </p>
-  <p style={{ 
-    marginLeft : isMobile ? "" : "90px",    
-    fontSize:  isMobile? "1rem" :  "clamp(0.7rem, 1.5vw, 0.9rem)", 
-    fontWeight: "normal", 
-    color:"#CDEC76" 
-  }}>
-    CEO Natadana
-  </p>
-
-  <img
-    src="https://nda.co.id/wp-content/uploads/2025/02/1714114789670.jpg" 
-    alt="Gambar Baru"
-    style={{
-      width:  isMobile? "60px" :  "clamp(40px, 10vw, 60px)", 
-      height: isMobile? "60px" : "clamp(40px, 10vw, 60px)",
-      borderRadius: "50%",
-      objectFit: "cover",
-      marginTop:  isMobile ? "3px" : "-55px", 
-      marginLeft : isMobile ? "" : "20px",    
-
-    }}
-  />
-</div>
+          <div style={{ display: "flex", flexDirection: isMobile ? "column" : "row", alignItems: isMobile ? "center" : "flex-start", gap: "10px", marginTop : "20px" }}>
+            <img
+              src="https://nda.co.id/wp-content/uploads/2025/02/1714114789670.jpg" 
+              alt="Gambar Baru"
+              style={{
+                width:  isMobile? "60px" :  "clamp(40px, 10vw, 60px)", 
+                height: isMobile? "60px" : "clamp(40px, 10vw, 60px)",
+                borderRadius: "50%",
+                objectFit: "cover",
+                marginTop:  isMobile ? "0" : "-5px", 
+                marginLeft : isMobile ? "0" : "20px",    
+                order: isMobile ? "-1" : "0",
+              }}
+            />
+            <div>
+              <p style={{ 
+                marginLeft : isMobile ? "" : "90px",
+                fontSize:  isMobile? "1.5rem" : "clamp(0.9rem, 2vw, 1.1rem)", 
+                fontWeight: "normal",
+                margin: "0 0 5px 0",
+              }}>
+                Hudan Maulana
+              </p>
+              <p style={{ 
+                marginLeft : isMobile ? "" : "90px",    
+                fontSize:  isMobile? "1rem" :  "clamp(0.7rem, 1.5vw, 0.9rem)", 
+                fontWeight: "normal", 
+                color:"#CDEC76",
+                margin: "0",
+              }}>
+                CEO Natadana
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
         <div
           style={{
@@ -241,30 +249,36 @@ const [isMobile, setIsMobile] = useState(false);
             minWidth: "300px",
             display: "flex",
             flexDirection: "column",
-            gap: "20px",
+            gap: "1px",
             maxWidth: "600px",
+            marginTop : isMobile ? "10px" : "10px",
+            height: isMobile ? "auto" : "100%",
           }}
         >
           <div
           style={{
             display: "inline-block",
-            color: "black",
-            padding: "10px 20px",
-            borderRadius: "20px",
-            marginBottom: "0",
-            backgroundColor:"#CDEC76",
-            width:"fit-content",
+              color: "black",
+              padding: "10px 30px",
+              borderRadius: "20px",
+              border: "2px solid #d2d3d2f5",
+              backgroundColor: "#F7FFDF",
+              color : "#00202e",
+              fontSize : "1rem", 
+              width:"fit-content",
+              marginLeft : isMobile ? "80px" : "1px",
+              marginBottom : "10px",
           }}
         >
           Get In Touch
         </div>
-          <h2 style={{ fontSize: "2.5rem", margin: "0", color:"#0D2430",marginTop: "-20px" }}>We Ready To Help You</h2>
-          <p style={{ fontSize: "1rem", marginBottom: "10px", color: "#0D2430",marginTop: "-20px" }}>
+          <h2 style={{ fontSize: isMobile? "2rem" : "2.5rem",fontWeight:"bold",padding:isMobile? "20px" : "5px", color:"#0D2430",marginTop: "-10px", textAlign : isMobile ? "center" : "left" }}>We Ready To Help You</h2>
+          <p style={{ fontSize: "1rem",padding:isMobile? "20px" : "5px", marginBottom: "10px", color: "#0D2430",marginTop: "-10px", textAlign : isMobile ? "center" : "left" }}>
               Have a question or need assistance? Fill out the form below, and we’ll get back to you as soon as possible! 
           </p>
-        <div style={{  backgroundColor: "#FBF9F7", padding: "10px", borderRadius: "15px", marginTop: "-20px"}}>
-          <p style={{color : "#596F1A", marginBottom: "10px", fontSize : "1.5rem", fontWeight : " bold"}}>
-            let's connect with us
+        <div style={{  backgroundColor: "#FBF9F7", padding: "30px", borderRadius: "15px", marginTop: "-5px", height: isMobile ? "auto" : "100%"}}>
+          <p style={{color : "#596F1A", marginBottom: "20px", fontSize : "1.2rem", fontWeight : " bold"}}>
+            Let's Connect With Us
           </p>
           <form
             style={{
@@ -297,10 +311,12 @@ const [isMobile, setIsMobile] = useState(false);
             <div
               style={{
                 display: "flex",
-                justifyContent: "space-between",
+                flexDirection: isMobile ? "column" : "row",
+                justifyContent: isMobile ? "center" : "space-between",
                 alignItems: "center",
                 flexWrap: "wrap",
                 gap: "10px",
+                marginTop : "15px",
               }}
             >
               <label
@@ -324,10 +340,13 @@ const [isMobile, setIsMobile] = useState(false);
                   color: "white",
                   border: "none",
                   padding: "10px 25px",
-                  borderRadius: "8px",
+                  borderRadius: "25px",
                   cursor: "not-allowed",
                   fontWeight: "bold",
                   transition: "0.3s",
+                  width: isMobile ? "calc(100% - 10px)" : "auto",
+                  marginLeft: isMobile ? "5px" : "0",
+                  marginRight: isMobile ? "5px" : "0",
                 }}
               >
                 Subscribe Now →
@@ -362,13 +381,14 @@ const [isMobile, setIsMobile] = useState(false);
 
 const inputStyle = {
   padding: "12px 15px",
-  borderRadius: "8px",
+  borderRadius: "25px",
   border: "2px solid #ccc",
   backgroundColor: "#f4f4f4",
   color: "#black",
   fontSize: "1rem",
   outline: "none",
 };
+
 
 
 

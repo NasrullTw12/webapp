@@ -325,6 +325,15 @@ const Footer = () => {
           .footer-col ul {
             padding-left: 0 !important;
           }
+
+          .footer-col p {
+            flex-direction: column !important;
+            align-items: center !important;
+          }
+
+          .footer-col .material-symbols-outlined {
+            margin-bottom: 8px !important;
+          }
         }
       `}
       </style>

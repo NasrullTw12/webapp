@@ -104,7 +104,7 @@ const OurTeamContent = () => {
         Our Team
       </div>
 
-      <p style={{ fontSize: isMobile? "3rem" : "4rem", margin: "0", color: "white" ,marginTop : "-8px", fontWeight : "bold"}}>
+      <p style={{ fontSize: isMobile? "3rem" : "4rem", margin: "0", color: "white" ,marginTop : "-8px", fontWeight : "bold", lineHeight: "1"}}>
         Meet Our Member
       </p>
 
@@ -115,6 +115,7 @@ const OurTeamContent = () => {
           margin: "0",
           color: "white",
           marginBottom: "60px",
+          padding : "15px 25px 0 35px",
           
         }}
       >

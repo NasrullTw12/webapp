@@ -55,7 +55,7 @@ const AboutContent = () => {
         About Us
       </div>
 
-      <p style={{ fontSize: "4rem", margin: "0", color: "white",marginTop : "-8px", fontWeight : "bold" }}>About Natadana</p>
+      <p style={{ fontSize: "4rem", margin: "0", color: "white",marginTop : "-8px", fontWeight : "bold", lineHeight : "1" }}>About Natadana</p>
 
       <p
         style={{
@@ -64,6 +64,7 @@ const AboutContent = () => {
           margin: "0",
           color: "white",
           marginBottom: "60px",
+          padding : "10px",
         }}
       >        
         Armed with experience in the modern and digital-based financial world.

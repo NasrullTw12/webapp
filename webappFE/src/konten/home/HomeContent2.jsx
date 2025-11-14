@@ -56,27 +56,215 @@ const HomeContent2 = () => {
 
   return (
     <div style={{ width: "100%", margin: 0, padding: 0 }}>
-      {/* <section id ="kiwkiw"
+
+      {/* Responsive grid: DOM order matches desired mobile order
+          Mobile order: About Us -> Company Mission -> Company Vision -> Image -> Learn More
+          Desktop/grid places items into two columns to match original layout */}
+      <section
         style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "flex-start",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
+          display: "grid",
+          gridTemplateColumns: isMobile ? "1fr" : "45% 45%",
+          gap: isMobile ? "20px" : "60px",
+          alignItems: "start",
+          justifyContent: "center",
           width: "100%",
-          minHeight: "500px",
-          background: "#ffff",
+          background: "#fff",
+          // padding: isMobile ? "20px" : "60px 80px",
+          padding : "30px",
         }}
       >
+        {/* Right column wrapper: spans left column height on desktop and keeps mobile DOM order
+            Contains About Us (top), Company Mission (middle), Learn More (bottom) */}
         <div
           style={{
-            flex: "1 1 500px",
-            padding: "50px",
-            color: "#121213ff",
-            fontFamily: "sans-serif",
+            gridColumn: isMobile ? undefined : "2 / 3",
+            gridRow: isMobile ? undefined : "1 / 3",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: isMobile ? "flex-start" : "space-between",
+            gap: isMobile ? "20px" : "30px",
+            alignItems: isMobile ? "center" : "flex-start",
+          }}
+        >
+          {/* About Us (top) */}
+          <div
+            style={{
+              opacity: animate ? 1 : 0,
+              transform: animate ? "translateY(0)" : "translateY(50px)",
+              transition: "all 1s ease",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: isMobile ? "center" : "flex-start",
+              gap: "15px",
+            }}
+          >
+            <div
+              style={{
+                display: "inline-block",
+                color: "#00202e",
+                padding: "1px 30px",
+                borderRadius: "20px",
+                border: "2px solid #d2d3d2f5",
+                backgroundColor: "#F7FFDF",
+              }}
+            >
+              About Us
+            </div>
+            <h3
+              style={{
+                fontSize: isMobile ? "1.8rem" : "3.5rem",
+                color: "#0D2430",
+                lineHeight: 1.2,
+                textAlign: isMobile ? "center" : "left",
+                margin: 0,
+              }}
+            >
+              The Best Digital Consultant In Town
+            </h3>
+          </div>
+
+          {/* Company Mission (middle) */}
+          <div
+            style={{
+              opacity: animate ? 1 : 0,
+              transform: animate ? "translateX(0)" : "translateX(50px)",
+              transition: "all 1s ease 0.3s",
+              display: "flex",
+              flexDirection: isMobile ? "column" : "row",
+              gap: "15px",
+              padding: isMobile ? "0" : "30px",
+              backgroundColor: isMobile ? "transparent" : "transparent",
+              borderRadius: isMobile ? "0" : "15px",
+              width: "100%",
+              alignItems: "flex-start",
+              marginTop : isMobile ? "0" : "-50px",
+            }}
+          >
+            {/* left: icon + title */}
+            <div
+              style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: isMobile ? "center" : "flex-start",
+                  alignSelf: isMobile ? "center" : "flex-start",
+                  justifyContent: "flex-start",
+                  fontSize: isMobile ? "1.2rem" : "1.5rem",
+                  lineHeight: 1.6,
+                  color: "#333",
+                  textAlign: isMobile ? "center" : "left",
+                  fontWeight: "bold",
+                  gap: "10px",
+                  width: isMobile ? "auto" : "40%",
+                  minWidth: isMobile ? undefined : "200px",
+                  margin: isMobile ? "0 auto" : undefined,
+                }}
+            >
+              <img
+                src="https://nda.co.id/wp-content/uploads/2025/02/17-1.png"
+                alt="company mission"
+                style={{
+                  width: "60px",
+                  height: "60px",
+                  background: "#CDEC76",
+                  borderRadius: "50%",
+                  padding: "5px",
+                  objectFit: "contain",
+                  flexShrink: 0,
+                }}
+              />
+              Company Mission
+            </div>
+
+            {/* right: paragraph */}
+            <p
+              style={{
+                fontSize: isMobile ? "0.9rem" : "1rem",
+                lineHeight: 1.6,
+                color: "#333",
+                textAlign: isMobile ? "center" : "left",
+                margin: 0,
+                flex: isMobile ? undefined : 1,
+              }}
+            >
+              To be the preferred partner of the financial industry in implementing
+              digital processes to develop our partners' businesses.
+            </p>
+          </div>
+
+        </div>
+        {/* 3) Company Vision (mobile: third, desktop: left column row 2) */}
+        <div
+          style={{
+            opacity: animate ? 1 : 0,
+            transform: animate ? "translateX(0)" : "translateX(-50px)",
+            transition: "all 1s ease 0.3s",
+            gridColumn: isMobile ? undefined : "1 / 2",
+            gridRow: isMobile ? undefined : "2 / 3",
+            display: "flex",
+            flexDirection: isMobile ? "column" : "row",
+            gap: "15px",
+            alignItems: isMobile ? "center" : "flex-start",
+          }}
+        >
+          {/* left: icon + title */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: isMobile ? "center" : "flex-start",
+              fontSize: isMobile ? "1.2rem" : "1.5rem",
+              lineHeight: 1.6,
+              color: "#121213ff",
+              textAlign: isMobile ? "center" : "left",
+              fontWeight: "bold",
+              gap: "10px",
+              width: isMobile ? "auto" : "40%",
+              minWidth: isMobile ? undefined : "200px",
+            }}
+          >
+            <img
+              src="https://nda.co.id/wp-content/uploads/2025/02/18.png"
+              alt="company vision"
+              style={{
+                width: "60px",
+                height: "60px",
+                background: "#CDEC76",
+                borderRadius: "50%",
+                padding: "15px",
+                objectFit: "contain",
+                flexShrink: 0,
+              }}
+            />
+            Company Vision
+          </div>
+
+          {/* right: paragraph */}
+          <p
+            style={{
+              fontSize: isMobile ? "0.9rem" : "1rem",
+              lineHeight: 1.3,
+              color: "#121213ff",
+              textAlign: isMobile ? "center" : "left",
+              flex: isMobile ? undefined : 1,
+              margin: 0,
+            }}
+          >
+            Providing unlimited access to comprehensive and quality resources in the
+            digital space for the financial industry and other industries.
+          </p>
+        </div>
+
+        {/* 4) Image (mobile: fourth, desktop: left column row 1) */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
             opacity: animate ? 1 : 0,
             transform: animate ? "translateY(0)" : "translateY(50px)",
             transition: "all 1s ease",
+            gridColumn: isMobile ? undefined : "1 / 2",
+            gridRow: isMobile ? undefined : "1 / 2",
           }}
         >
           <img
@@ -84,498 +272,274 @@ const HomeContent2 = () => {
             alt="gambar section"
             style={{
               maxWidth: "100%",
-              height: "auto",
+              width: isMobile ? "100%" : "auto",
+              height: isMobile ? "auto" : "100%",
               borderRadius: "10px",
               boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
-              marginBottom: "20px",
             }}
           />
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "space-between",
-              gap: "5px",
-            }}
-          >
-           
-            <div
-              style={{
-                flex: "1 1 30%",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                justifyContent: "flex-start",
-                fontSize: isMobile ? "2rem" : "1.5rem",
-                lineHeight: 1.6,
-                color: "#121213ff",
-                textAlign: "left",
-                margin: 0,
-                marginTop: "-5px",
-                fontWeight: "bold",
-                gap: "5px",
-              }}
-            >
-              <img
-                src="https://nda.co.id/wp-content/uploads/2025/02/18.png"
-                alt="company vision"
-                style={{
-                  width: "60px",
-                  height: "60px",
-                  background: "#CDEC76",
-                  borderRadius: "50%",
-                  padding: "15px",
-                  objectFit: "contain",
-                  flexShrink: 0,
-                }}
-              />
-              Company Vision
-            </div>
-            <p
-              style={{
-                flex: "1 1 48%",
-                fontSize: "1rem",
-                lineHeight: 1.3,
-                color: "#121213ff",
-                marginTop: "30px",
-              }}
-            >
-              Providing unlimited access to comprehensive and quality resources in the digital space for the financial industry and other industries
-            </p>
-          </div>
         </div>
 
+        {/* 5) Learn More Button (mobile: last) */}
         <div
           style={{
-            flex: "1 1 500px",
-            padding: "10px",
-            color: "#121213ff",
-            fontFamily: "sans-serif",
-            backgroundColor: "#ffff",
+            display: "flex",
+            justifyContent: isMobile ? "center" : "flex-start",
             opacity: animate ? 1 : 0,
-            transform: animate ? "translateX(0)" : "translateX(50px)",
+            transform: animate ? "translateY(0)" : "translateY(50px)",
             transition: "all 1s ease 0.5s",
-            borderTopLeftRadius: "30px",
-            borderBottomLeftRadius: "30px",
+            gridColumn: isMobile ? undefined : "2 / 3",
+            gridRow: isMobile ? undefined : "3 / 4",
+            width: "100%",
+            background: "#00202e",
+            padding: isMobile ? "12px" : "20px",
+            borderRadius: "50px",
+            boxSizing: "border-box",
+            color: "#fff",
+            marginTop : isMobile ? "0" : "-180px",
+
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: isMobile ? "center" : "flex-start",
-              justifyContent: isMobile ? "center" : "flex-start",
-              textAlign: isMobile ? "center" : "left",
-              padding: isMobile ? "40px 20px" : "60px 80px",
-              marginLeft : isMobile ? "" : "-80px",
-              marginTop : isMobile ? "" : "-20px",
-              marginBottom : "5px",
-            }}
-          >
-            <div
-               style={{
-                  display: "inline-block",
-                  color: "black",
-                  padding: "1px 30px",
-                  borderRadius: "20px",
-                  border: "2px solid #d2d3d2f5",
-                  backgroundColor: "#F7FFDF",
-                  color : "#00202e",
-                  fontSize : "1rem",      
-                  marginBottom: "10px",      
-              }}
-            >
-              About Us
-            </div>
-
-            <h3
-              style={{
-                fontSize: isMobile ? "1.8rem" : "3.5rem",
-                color: "#0D2430",
-                marginBottom: "30px",
-                lineHeight: 1.2,
-                textAlign: isMobile ? "center" : "left",
-              }}
-            >
-              The Best Digital Consultant In Town
-            </h3>
-
+          {isMobile ? (
             <div
               style={{
                 display: "flex",
-                flexWrap: "wrap",
-                justifyContent: isMobile ? "center" : "space-between",
-                alignItems: isMobile ? "center" : "flex-start",
-                gap: "10px",
-                marginTop : isMobile ? "" : "-20px",
-             
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "12px",
+                width: "100%",
               }}
             >
+              {/* two small checks left & right */}
               <div
                 style={{
-                  flex: isMobile ? "1 1 100%" : "1 1 30%",
                   display: "flex",
-                  flexDirection: "column",
-                  alignItems: isMobile ? "center" : "flex-start",
-                  justifyContent: "center",
-                  fontSize: isMobile ? "1.3rem" : "1.5rem",
-                  lineHeight: 1.6,
-                  color: "#333",
-                  textAlign: isMobile ? "center" : "left",
-                  marginBottom: "10px",
-                  fontWeight: "bold",
-                  gap: "10px",
+                  justifyContent: "space-between",
+                  width: "100%",
+                  maxWidth: "320px",
+                  gap: "16px",
+                  marginTop : isMobile ? "10px" : "0",
                 }}
               >
-                <img
-                  src="https://nda.co.id/wp-content/uploads/2025/02/17-1.png"
-                  alt="company mission"
+                <button
+                  aria-label="Select consultation left"
                   style={{
-                    width: "60px",
-                    height: "60px",
-                    background: "#CDEC76",
+                    width: "36px",
+                    height: "36px",
                     borderRadius: "50%",
-                    padding: "5px",
-                    objectFit: "contain",
-                    flexShrink: 0,
+                    background: "#CDEC76",
+                    border: "none",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: 0,
+                    color: "#fff",
+                    cursor: "pointer",
                   }}
-                />
-                Company Mission
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#0D2430"
+                    strokeWidth="5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </button>
+
+                {/* <button
+                  aria-label="Select consultation right"
+                  style={{
+                    width: "36px",
+                    height: "36px",
+                    borderRadius: "50%",
+                    background: "#CDEC76",
+                    border: "none",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: 0,
+                    color: "#fff",
+                    cursor: "pointer",
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#fff"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </button> */}
               </div>
 
-              <p
+              {/* text below the checks */}
+              <div
                 style={{
-                  flex: isMobile ? "1 1 100%" : "1 1 48%",
-                  fontSize: isMobile ? "0.8rem" : "1rem",
-                  lineHeight: 1.6,
-                  color: "#333",
-                  marginTop: isMobile ? "10px" : "30px",
-                  textAlign: isMobile ? "center" : "left",
-                  marginTop :"-10px",
+                  color: "#fff",
+                  fontSize: "0.95rem",
+                  maxWidth: "100%",
+                  textAlign: "center",
+                  padding: "0 8px",
+                  marginLeft : isMobile ? "30px" : "0",
+                  marginTop: isMobile ? "-50PX" : "0",
                 }}
               >
-                To be the preferred partner of the financial industry in implementing
-                digital processes to develop our partners’ businesses.
-              </p>
-            </div>
-          </div>
+                Join us to achieve sustainable growth and reach your financial goals with the right strategies.
+              </div>
 
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "space-between",
-              alignItems: "center",
-              backgroundColor: "#00202e",
-              borderRadius: "60px",
-              border: "2px solid #CDEC76",
-              padding: isMobile? "30px" : "10px",
-              marginTop: isMobile ? "" : "-70px",
-            }}
-          >
-            <p
-              style={{
-                flex: "1 1 auto", 
-                fontSize: "1rem",
-                lineHeight: 1.2,
-                color: "#fff",
-                margin: 0,
-                background : "#00202e",
-                paddingLeft : "10px",
-              }}
-            >
-              <span style={{   background: "#CDEC76",
-              borderRadius: "85%", 
-              objectFit: "contain",
-              color : "#00202e",
-            }}>✓</span> Join us to achieve sustainable growth and reach your financial <br />goals
-              with the right strategies.
-            </p>
-            <button
-              style={{
-                padding: "12px 25px",
-                borderRadius: "25px",
-                border: "none",
-                backgroundColor: "#CDEC76",
-                color: "#0C2B4E",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-                display: "flex",
-                alignItems: "center",
-                gap: "5px",
-                whiteSpace: "nowrap", 
-                fontSize: "1rem",
-              }}
-              className="get-started-button"
-            >
-              Learn More
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="none"
-                stroke="#0C2B4E"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                viewBox="0 0 24 24"
-                style={{ transition: "transform 0.3s ease", }}
+              {/* smaller, neat button */}
+              <button
+                style={{
+                  padding: "8px 12px",
+                  borderRadius: "20px",
+                  border: "none",
+                  backgroundColor: "#CDEC76",
+                  color: "#00202e",
+                  cursor: "pointer",
+                  fontSize: "0.9rem",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  width: "auto",
+                  minWidth: "120px",
+                  justifyContent: "center",
+                  fontWeight: "600",
+                }}
               >
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </button>
-          </div>
+                Learn More
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  fill="none"
+                  stroke="#00202e"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  viewBox="0 0 24 24"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </button>
+            </div>
+          ) : (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "flex-start",
+                gap: "10px",
+                width: "auto",
+              }}
+            >
+              {/* Left text beside button with small check */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: isMobile ? "center" : "flex-start",
+                  gap: "12px",
+                  width: isMobile ? "100%" : "auto",
+                }}
+              >
+                <button
+                  aria-label="Select consultation"
+                  style={{
+                    width: "28px",
+                    height: "28px",
+                    borderRadius: "50%",
+                    background: "#CDEC76",
+                    border: "none",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: 0,
+                    color: "#fff",
+                    // cursor: "pointer",
+                    alignSelf: isMobile ? "center" : "flex-start",
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#0D2430"
+                    strokeWidth="5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </button>
+
+                <div
+                  style={{
+                    color: "#fff",
+                    fontSize: isMobile ? "0.95rem" : "1rem",
+                    maxWidth: isMobile ? "100%" : "500px",
+                    textAlign: isMobile ? "center" : "left",
+                  }}
+                >
+                  Join us to achieve sustainable growth and reach <br /> your financial goals with the right strategies.
+                </div>
+              </div>
+
+              <button
+                style={{
+                  padding: "12px 15px",
+                  borderRadius: "25px",
+                  border: "none",
+                  backgroundColor: "#CDEC76",
+                  color: "#0D2430",
+                  cursor: "pointer",
+                  fontSize: isMobile ? "0.9rem" : "1rem",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "5px",
+                  width: isMobile ? "100%" : "150px",
+                  justifyContent: "center",
+                  fontWeight: "600",
+                }}
+              >
+                Learn More
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="#0D2430"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  viewBox="0 0 24 24"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </button>
+            </div>
+          )}
         </div>
-      </section> */}
-      <section
-  id="kiwkiw"
-  style={{
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "flex-start",
-    justifyContent: "space-between",
-    flexWrap: "wrap",
-    width: "100%",
-    minHeight: "500px",
-    background: "#fff",
-  }}
->
-  {/* ----------------- About Us ----------------- */}
-  <div
-    style={{
-      flex: "1 1 500px",
-      padding: "50px",
-      color: "#121213ff",
-      fontFamily: "sans-serif",
-      opacity: animate ? 1 : 0,
-      transform: animate ? "translateY(0)" : "translateY(50px)",
-      transition: "all 1s ease",
-      order: isMobile ? 1 : 0,
-    }}
-  >
-    <div
-      style={{
-        display: "inline-block",
-        color: "#00202e",
-        padding: "1px 30px",
-        borderRadius: "20px",
-        border: "2px solid #d2d3d2f5",
-        backgroundColor: "#F7FFDF",
-        marginBottom: "20px",
-              marginLeft : isMobile? "25%" : "",
+      </section>
 
-      }}
-    >
-      About Us
-    </div>
-    <h3
-      style={{
-        fontSize: isMobile ? "1.8rem" : "3.5rem",
-        color: "#0D2430",
-        marginBottom: "30px",
-        lineHeight: 1.2,
-        textAlign: isMobile ? "center" : "left",
-      }}
-    >
-      The Best Digital Consultant In Town
-    </h3>
-  </div>
-
-  {/* ----------------- Company Mission ----------------- */}
-  <div
-    style={{
-      flex: "1 1 500px",
-      padding: "10px",
-      color: "#121213ff",
-      fontFamily: "sans-serif",
-      backgroundColor: "#fff",
-      opacity: animate ? 1 : 0,
-      transform: animate ? "translateX(0)" : "translateX(50px)",
-      transition: "all 1s ease 0.5s",
-      borderTopLeftRadius: "30px",
-      borderBottomLeftRadius: "30px",
-      order: isMobile ? 2 : 0,
-    }}
-  >
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: isMobile ? "center" : "space-between",
-        alignItems: "flex-start",
-        gap: "10px",
-      }}
-    >
-      <div
-        style={{
-          flex: isMobile ? "1 1 100%" : "1 1 30%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          justifyContent: "center",
-          fontSize: "1.5rem",
-          lineHeight: 1.6,
-          color: "#333",
-          textAlign: "left",
-          marginBottom: "10px",
-          fontWeight: "bold",
-          gap: "10px",
-        }}
-      >
-        <img
-          src="https://nda.co.id/wp-content/uploads/2025/02/17-1.png"
-          alt="company mission"
-          style={{
-            width: "60px",
-            height: "60px",
-            background: "#CDEC76",
-            borderRadius: "50%",
-            padding: "5px",
-            objectFit: "contain",
-            flexShrink: 0,
-          }}
-        />
-        Company Mission
-      </div>
-      <p
-        style={{
-          flex: isMobile ? "1 1 100%" : "1 1 48%",
-          fontSize: "1rem",
-          lineHeight: 1.6,
-          color: "#333",
-          textAlign: isMobile ? "center" : "left",
-        }}
-      >
-        To be the preferred partner of the financial industry in implementing
-        digital processes to develop our partners’ businesses.
-      </p>
-    </div>
-  </div>
-
-  {/* ----------------- Company Vision ----------------- */}
-  <div
-    style={{
-      flex: "1 1 500px",
-      padding: "50px",
-      order: isMobile ? 3 : 0,
-    }}
-  >
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "space-between",
-        gap: "5px",
-      }}
-    >
-      <div
-        style={{
-          flex: "1 1 30%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          justifyContent: "flex-start",
-          fontSize: "1.5rem",
-          lineHeight: 1.6,
-          color: "#121213ff",
-          textAlign: "left",
-          gap: "5px",
-        }}
-      >
-        <img
-          src="https://nda.co.id/wp-content/uploads/2025/02/18.png"
-          alt="company vision"
-          style={{
-            width: "60px",
-            height: "60px",
-            background: "#CDEC76",
-            borderRadius: "50%",
-            padding: "15px",
-            objectFit: "contain",
-            flexShrink: 0,
-          }}
-        />
-        Company Vision
-      </div>
-      <p
-        style={{
-          flex: "1 1 48%",
-          fontSize: "1rem",
-          lineHeight: 1.3,
-          color: "#121213ff",
-          marginTop: "30px",
-        }}
-      >
-        Providing unlimited access to comprehensive and quality resources in the
-        digital space for the financial industry and other industries.
-      </p>
-    </div>
-  </div>
-
-  {/* ----------------- Image ----------------- */}
-  <div
-    style={{
-      flex: "1 1 500px",
-      padding: "50px",
-      order: isMobile ? 4 : 0,
-    }}
-  >
-    <img
-      src="/images/gambar2.jpg"
-      alt="gambar section"
-      style={{
-        maxWidth: "100%",
-        height: "auto",
-        borderRadius: "10px",
-        boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
-      }}
-    />
-  </div>
-
-  {/* ----------------- Learn More Button ----------------- */}
-  <div
-    style={{
-      flex: "1 1 500px",
-      display: "flex",
-      justifyContent: "center",
-      padding: "50px",
-      order: isMobile ? 5 : 0,
-    }}
-  >
-    <button
-      style={{
-        padding: "12px 25px",
-        borderRadius: "25px",
-        border: "none",
-        backgroundColor: "#CDEC76",
-        color: "#0C2B4E",
-        cursor: "pointer",
-        fontSize: "1rem",
-        display: "flex",
-        alignItems: "center",
-        gap: "5px",
-      }}
-    >
-      Learn More
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="none"
-        stroke="#0C2B4E"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        viewBox="0 0 24 24"
-      >
-        <line x1="5" y1="12" x2="19" y2="12" />
-        <polyline points="12 5 19 12 12 19" />
-      </svg>
-    </button>
-  </div>
-</section>
-
+   
 
       <section id="slebew"
         style={{

@@ -34,6 +34,8 @@ const CardGrid = ({ cardData, isMobile }) => {
       }}
     >
       {cardData.map((card, idx) => {
+        const isOpen = (isMobile && activeIdx === idx) || (!isMobile && desktopShowIdx === idx);
+
         return (
           <div
             key={idx}
@@ -49,11 +51,10 @@ const CardGrid = ({ cardData, isMobile }) => {
               cursor: isMobile ? "pointer" : "default",
               transform: visibleCards.includes(idx) ? "translateY(0)" : "translateY(60px)",
               transition: "transform 0.6s ease",
-              background: "#222",
               display: "flex",
               flexDirection: "column",
               justifyContent: "flex-end",
-              backgroundColor : "#FBF9F7",
+              backgroundColor: "#FBF9F7",
             }}
             onClick={() => isMobile && setActiveIdx(idx)}
             onMouseEnter={() => !isMobile && setDesktopShowIdx(idx)}
@@ -71,57 +72,151 @@ const CardGrid = ({ cardData, isMobile }) => {
                 height: "100%",
                 zIndex: 1,
               }}
-            ></div>
+            />
 
-            <div style={{ position: "relative", zIndex: 2, width: "80%", background:"#0D2430", borderRadius: "0 25px 0px 15px", padding: "20px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <h3
-                style={{
-                  margin: 0,
-                  transition: "transform 0.4s cubic-bezier(.4,2,.3,1)",
-                  transform:
-                    (isMobile && activeIdx === idx) || (!isMobile && desktopShowIdx === idx)
-                      ? "translateY(-10px)"
-                      : "translateY(0)",
-                  zIndex: 3,
-                }}
-              >
-                {card.title}
-              </h3>
-               <img
-                  src="https://nda.co.id/wp-content/uploads/2025/02/ak3.png"
-                  alt="Left Card"
-                  style={{ width: "100%", height: "100%" }}
+            <div
+              style={{
+                position: "relative",
+                zIndex: 2,
+                width: isMobile ? "100%" : "80%",
+                background: "#0D2430",
+                borderRadius: "0 25px 0px 15px",
+                padding: "10px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "12px",
+                color: "#F7FFDF",
+              }}
+            >
+              <div style={{ display: "flex", alignItems: isMobile ? "flex-start" : "center", gap: "12px", width: "100%", justifyContent: isMobile ? "flex-start" : "flex-start" }}>
+                {/* mobile: ak3 left of icon */}
+                {isMobile && (
+                  <img
+                    src="https://nda.co.id/wp-content/uploads/2025/02/ak3.png"
+                    alt="ak3"
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      objectFit: "cover",
+                      borderRadius: "6px",
+                      opacity: isOpen ? 1 : 0.5,
+                      background: isOpen ? "transparent" : "transparent",
+                      flexShrink: 0,
+                      marginTop: "8px",
+                    }}
+                  />
+                )}
+
+                {/* desktop: icon left of title */}
+                {!isMobile && (
+                  <img
+                    src={card.icon}
+                    alt={`${card.title} icon`}
+                    style={{
+                     marginBottom: "10px",
+                      width: "60px",
+                      height: "60px",
+                      background: "#CDEC76",
+                      borderRadius: "50%", 
+                      padding: "10px", 
+                      objectFit: "contain",
+                      borderRadius: "50px",
+                      flexShrink: 0,
+                      background: isOpen ? "#CDEC76" : "#CDEC76",
+                      // opacity: isOpen ? 1 : 0.6,
+                    }}
+                  />
+                )}
+
+                <div style={{ display: "flex", flexDirection: isMobile ? "column" : "row", alignItems: isMobile ? "center" : "center", gap: "8px" }}>
+                  {isMobile && (
+                    <img
+                      src={card.icon}
+                      alt={`${card.title} icon`}
+                      style={{
+                       marginBottom: "10px",
+                        width: "60px",
+                        height: "60px",
+                        background: "#CDEC76",
+                        borderRadius: "50%", 
+                        padding: "5px", 
+                        objectFit: "contain" ,
+                        flexShrink: 0,
+                        // opacity: isOpen ? 1 : 0.6,
+                      }}
+                    />
+                  )}
+
+                  <h3
+                    style={{
+                      margin: 0,
+                      transition: "transform 0.4s cubic-bezier(.4,2,.3,1)",
+                      transform: isOpen ? "translateY(-10px)" : "translateY(0)",
+                      zIndex: 3,
+                      textAlign: isMobile ? "center" : "left",
+                      fontSize: isMobile ? "1.5rem" : "1.5rem",
+                      cursor: isMobile ? "pointer" : "default",
+                    }}
+                    onClick={(e) => {
+                      if (isMobile) {
+                        e.stopPropagation();
+                        setActiveIdx(activeIdx === idx ? null : idx);
+                      }
+                    }}
+                  >
+                    {card.title}
+                  </h3>
+
+                  {/* desktop: ak3 to the right of title */}
+                  {!isMobile && (
+                    <img
+                      src="https://nda.co.id/wp-content/uploads/2025/02/ak3.png"
+                      alt="ak3"
+                      style={{
+                        width: "40px",
+                        height: "40px",
+                        objectFit: "cover",
+                        borderRadius: "6px",
+                        marginLeft: "12px",
+                        opacity: isOpen ? 1 : 0.5,
+                        background: isOpen ? "transparent" : "transparent",
+                      }}
+                    />
+                  )}
+                </div>
+              </div>
+
+              {/* Divider line */}
+              {isOpen && (
+                <div
+                  style={{
+                    width: "100%",
+                    height: "1px",
+                    backgroundColor: "#F7FFDF",
+                    opacity: 0.3,
+                    margin: "12px 0",
+                  }}
                 />
+              )}
+
               {isMobile ? (
                 <div
                   style={{
                     maxHeight: activeIdx === idx ? "120px" : "0px",
                     opacity: activeIdx === idx ? 1 : 0,
                     overflow: "hidden",
-                    transition: activeIdx === idx
-                      ? "max-height 0.4s cubic-bezier(.4,2,.3,1), opacity 0.3s"
-                      : "max-height 0.4s cubic-bezier(.4,2,.3,1)",
+                    transition: activeIdx === idx ? "max-height 0.4s cubic-bezier(.4,2,.3,1), opacity 0.3s" : "max-height 0.4s cubic-bezier(.4,2,.3,1)",
                     width: "100%",
                     marginTop: activeIdx === idx ? "10px" : "0px",
                     textAlign: "center",
                     pointerEvents: activeIdx === idx ? "auto" : "none",
-                    backgroundColor : "#0D2430",
+                    backgroundColor: "#0D2430",
+                    cursor: "pointer",
                   }}
+                  onClick={(e) => { e.stopPropagation(); setActiveIdx(null); }}
                 >
-                  <p style={{ margin: 0, fontSize: "1rem", transition: "opacity 0.3s", opacity: activeIdx === idx ? 1 : 0 , backgroundColor : "#0D2430" }}>{card.description}</p>
-                  <button
-                    style={{
-                      marginTop: "18px",
-                      background: "#CDEC76",
-                      color: "#0C2B4E",
-                      border: "none",
-                      borderRadius: "8px",
-                      padding: "8px 18px",
-                      fontWeight: "bold",
-                      cursor: "pointer",
-                    }}
-                    onClick={(e) => { e.stopPropagation(); setActiveIdx(null); }}
-                  >Tutup</button>
+                  <p style={{ margin: 0, fontSize: "1rem", transition: "opacity 0.3s", opacity: activeIdx === idx ? 1 : 0, backgroundColor: "#0D2430" }}>{card.description}</p>
                 </div>
               ) : (
                 <div
@@ -129,9 +224,7 @@ const CardGrid = ({ cardData, isMobile }) => {
                     maxHeight: desktopShowIdx === idx ? "120px" : "0px",
                     opacity: desktopShowIdx === idx ? 1 : 0,
                     overflow: "hidden",
-                    transition: desktopShowIdx === idx
-                      ? "max-height 0.4s cubic-bezier(.4,2,.3,1), opacity 0.3s"
-                      : "max-height 0.4s cubic-bezier(.4,2,.3,1)",
+                    transition: desktopShowIdx === idx ? "max-height 0.4s cubic-bezier(.4,2,.3,1), opacity 0.3s" : "max-height 0.4s cubic-bezier(.4,2,.3,1)",
                     width: "100%",
                     marginTop: desktopShowIdx === idx ? "10px" : "0px",
                     textAlign: "center",
@@ -158,16 +251,19 @@ const HomeContent3 = () => {
     {
       title: "Data Security",
       image: "https://nda.co.id/wp-content/uploads/2025/02/8-23.jpg",
+      icon: "https://nda.co.id/wp-content/uploads/2025/02/19.png",
       description: "Data is stored on a secure server that can be accessed any time.",
     },
     {
       title: "Financial Solution",
       image: "https://nda.co.id/wp-content/uploads/2025/02/11-22.jpg",
+      icon: "https://nda.co.id/wp-content/uploads/2025/02/20.png",
       description: "Partnership with Financial institutions to develop new market",
     },
     {
       title: "Monitoring Technology",
       image: "https://nda.co.id/wp-content/uploads/2025/02/10-22.jpg",
+      icon: "https://nda.co.id/wp-content/uploads/2025/02/21.png",
       description: "The entire data recording process can be monitored by clients with real-time data",
     },
   ];
