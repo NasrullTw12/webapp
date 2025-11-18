@@ -21,7 +21,7 @@ body {
   padding: 0;  /* kalau mau, bisa juga nolkan padding default */
   background-color: #00202e;
 }
-
+/* 
    @media (max-width: 768px) {
   #slebew {
     display: flex !important;
@@ -39,4 +39,4 @@ body {
   }
    }
 
-   
+    */

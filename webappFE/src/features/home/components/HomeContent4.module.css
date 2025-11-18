@@ -1,0 +1,226 @@
+.wrapper {
+  width: 100%;
+  margin: 0;
+  padding: 80px 0;
+  background: #fff;
+}
+
+/* ---------- TOP SECTION ---------- */
+
+.topSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+.tag {
+ display: inline-block;
+  color: #00202e;
+  padding: 10px 50px;
+  border-radius: 20px;
+  border: 2px solid #d2d3d2f5;
+  background-color: #F7FFDF;
+  font-size: 1rem;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+
+.bigTitle {
+  margin: 0;
+  font-weight: bold;
+  color: #0D2430;
+  width: 80%;
+  line-height: 2;
+}
+
+.bigTitleMobile {
+  font-size: 2rem;
+  width: 100%;
+  line-height: 1.2;
+}
+
+.bigTitleDesktop {
+  font-size: 3rem;
+line-height: normal
+;}
+
+.subText {
+  font-size: 1rem;
+  max-width: 600px;
+  color: #0D2430;
+}
+
+/* ---------- GRID SECTION ---------- */
+
+.grid {
+  background: #FFFFFF00;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 250px);
+  gap: 30px;
+  padding: 0 50px;
+  justify-items: center;
+  align-items: center;
+  position: relative;
+  min-height: 700px;
+}
+
+/* ---------- CARD STYLE ---------- */
+
+.card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 30px;
+  text-align: left;
+  color: #0D2430;
+  cursor: pointer;
+  position: relative;
+  transition: transform .4s ease, box-shadow .4s ease;
+  width: 80%;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* ANIMATION */
+.fadeIn {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+.fadeInVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fadeInDelay2 {
+  transition-delay: 0.2s;
+}
+
+.fadeInDelay4 {
+  transition-delay: 0.4s;
+}
+
+.fadeInDelay6 {
+  transition-delay: 0.6s;
+}
+
+.fadeInDelay8 {
+  transition-delay: 0.8s;
+}
+
+/* Number icon */
+.number {
+  position: absolute;
+  top: 15px;
+  left: 32px;
+  font-weight: bold;
+  color: #28464E0F;
+  font-size: 4rem;
+}
+
+/* ---------- CENTER IMAGE ---------- */
+
+.bigImageWrapper {
+  grid-column: 2/3;
+  grid-row: 1 / span 2;
+  width: 500px;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 15px;
+  transition: all 1s ease;
+}
+
+.bigImageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* ---------- SLIDER ---------- */
+
+.sliderContainer {
+  background: #cdec76;
+  position: absolute;
+  top: 90%;
+  transform: translateY(-50%);
+  width: 400px;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  height: 250px;
+  border-radius: 40%;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.sliderTrack {
+  display: flex;
+  width: 700%;
+  animation: slide 30s linear infinite;
+}
+
+.slide {
+  flex: 0 0 100%;
+  background: #cdec76;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@keyframes slide {
+  0% { transform: translateX(0); }
+  14.28% { transform: translateX(0); }
+  28.56% { transform: translateX(-100%); }
+  42.84% { transform: translateX(-200%); }
+  57.12% { transform: translateX(-300%); }
+  71.4% { transform: translateX(-400%); }
+  85.68% { transform: translateX(-500%); }
+  100% { transform: translateX(-600%); }
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 768px) {
+  .grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 20px !important;
+  }
+
+  .grid > div {
+    width: 100% !important;
+    margin-bottom: 20px !important;
+    position: relative !important;
+    transform: none !important;
+    top: auto !important;
+  }
+
+  /* ORDER ON MOBILE */
+  .order1 { order: 3; }
+  .order2 { order: 4; }
+  .orderImage { order: 2; }
+  .order3 { order: 5; }
+  .order4 { order: 6; }
+}

@@ -1,0 +1,137 @@
+/* Header umum */
+header {
+  background: 
+    linear-gradient(139deg, rgba(0, 13, 19, 0.949) 100%, rgba(40, 70, 78, 50) 100%), /* Gelap di atas, transparan ke bawah */
+    url('https://nda.co.id/wp-content/uploads/2025/02/2.png') no-repeat center center;
+  background-size: cover;
+  padding: 80px 20px;
+}
+
+/* Container flex */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1430px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Desktop menu */
+.desktop-menu-wrapper {
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  overflow: hidden;
+  border: 1px solid #FFFFFF21;
+  height: 70px;
+  background: #FFFFFF0A;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.desktop-menu a {
+  transition: color 0.3s;
+  padding: 0 50px;
+  text-decoration: none;
+  color: #fff;
+  line-height: 60px;
+  border-left: 1px solid #1b191918;
+}
+
+.desktop-menu a:first-child {
+  border-left: none;
+}
+
+.desktop-menu a.active {
+  color: #CDEC76;
+}
+
+.get-started-button {
+  padding: 12px 25px;
+  border-radius: 25px;
+  background-color: #fff;
+  color: #0C2B4E;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.circle-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  transition: all 0.3s ease;
+  height: 20px;
+  width: 20px;
+}
+
+.get-started-button:hover {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.get-started-button:hover .circle-arrow {
+  background-color: white;
+  color: black; 
+  border: 1px solid black;
+  transform: translateX(5px);
+}
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 4px 0;
+}
+
+/* Mobile menu */
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #0C2B4E;
+  border-radius: 8px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.mobile-menu a.active {
+  color: #CDEC76;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .desktop-menu-wrapper,
+  .desktop-button {
+    display: none !important;
+  }
+  .hamburger {
+    display: flex !important;
+  }
+  header {
+ background-size: 500% auto !important;  /* Membuat gambar lebih besar dengan !important */
+    background-position: top center !important; /* Fokuskan gambar ke bagian atas */
+    }
+}
+

@@ -1,0 +1,362 @@
+/* KontakContent.module.css */
+
+.kontak-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+ background: 
+    linear-gradient(180deg, rgba(0, 13, 19, 0.949) 0%, rgba(40, 70, 78, 90) 100%),  /* Mudar transparan ke bawah */
+    url('https://nda.co.id/wp-content/uploads/2025/02/2.png') no-repeat center center;
+  background-size: cover;  
+  padding: 60px 20px;
+}
+
+.kontak-header {
+  display: inline-block;
+  color: #CDEC76;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 2px solid #3e3f3bff;
+  margin-bottom: 0;
+  margin-top: 60px;
+  font-weight: bold;
+}
+
+.kontak-title {
+  font-size: 4rem;
+  margin: 0;
+  color: white;
+  margin-top: -8px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.kontak-subtitle {
+  font-size: 1rem;
+  max-width: 700px;
+  margin: 0;
+  color: white;
+  margin-bottom: 60px;
+  padding: 10px;
+}
+
+.marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background-color: #CDEC76;
+  border-top: 2px solid #CDEC76;
+  border-bottom: 2px solid #CDEC76;
+  padding: 10px 0;
+}
+
+.gathell-section{
+  background-color: white ;
+  padding: 50px;
+}
+
+.marqueeWrapper {
+  margin-top: 24px;
+  width: 100%;
+  overflow: hidden;
+  background-color: #cdec76;
+  border-top: 2px solid #cdec76;
+  border-bottom: 2px solid #cdec76;
+  padding: 16px 0;
+  position: relative;
+  height: 85px;
+}
+
+/* SECTION CONTACT */
+.kontak-section {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  background: #ffff;
+  color: white;
+  gap: 5px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  min-height: 600px;
+padding: 40px 0;
+}
+
+.kontak-section.mobile {
+  flex-direction: column-reverse;
+  align-items: center;
+  padding: 60px 20px;
+  min-height: auto;
+}
+
+
+/* LEFT IMAGE */
+.kontak-image-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+
+}
+
+.kontak-image-wrapper.mobile {
+  height: auto;
+}
+
+.kontak-image {
+  width: 80%;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  height: 570px;
+}
+
+.kontak-image.mobile {
+  width: 100%;
+  height: 400px;
+}
+
+.kontak-image-overlay {
+  position: absolute;
+  top: 70px;
+  left: 86px;
+  width: 79%;
+  height: 94%;
+  background: linear-gradient(to top, rgba(1, 7, 15, 0.97), transparent);
+  border-radius: 5%;
+}
+
+.kontak-image-overlay.mobile {
+  top: 25px;
+  left: 1px;
+  width: 100%;
+  height: 94%;
+}
+
+.kontak-image-text {
+  position: absolute;
+  bottom: 5px;
+  width: 80%;
+  padding: 0 50px;
+  color: #fff;
+  text-align: left;
+  z-index: 10;
+}
+
+.kontak-image-text.mobile {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+.kontak-image-text p {
+  margin-bottom: 20px;
+}
+
+.kontak-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.kontak-profile img {
+  width: clamp(40px, 10vw, 60px);
+  height: clamp(40px, 10vw, 60px);
+  border-radius: 50%;
+  object-fit: cover;
+  border:  1px solid #cdec76;
+
+}
+
+.kontak-profile div p:first-child {
+  margin: 0 0 5px 0;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-weight: normal;
+}
+
+.kontak-profile div p:last-child {
+  margin: 0;
+  font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+  color: #CDEC76;
+}
+
+/* RIGHT FORM */
+.kontak-form-wrapper {
+  flex: 1;
+  /* min-width: 300px; */
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  max-width: 700px;
+  margin-top: -8px;
+  height: 100%;
+  padding-right: 100px;
+}
+
+.kontak-form-header {
+  display: inline-block;
+  color: #00202e;
+  padding: 10px 30px;
+  border-radius: 20px;
+  border: 2px solid #d2d3d2f5;
+  background-color: #F7FFDF;
+  font-size: 1rem;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+
+.kontak-form-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding: 5px;
+  color: #0D2430;
+  margin-top: -10px;
+}
+
+.kontak-form-text {
+  font-size: 1rem;
+  padding: 5px;
+  margin-bottom: 10px;
+  color: #0D2430;
+  margin-top: -10px;
+}
+
+.kontak-form-box {
+  background-color: #FBF9F7;
+  padding: 30px ;
+  border-radius: 15px;
+  height: 100%;
+}
+
+.kontak-form-box p {
+  color: #596F1A;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.kontak-input {
+  padding: 12px 15px;
+  border-radius: 25px;
+  border: 2px solid #ccc;
+  background-color: #f4f4f4;
+  font-size: 1rem;
+  outline: none;
+  width: 100%;
+  margin-bottom: 15px; /* ⬅️ Jarak antar input */
+}
+
+
+.kontak-textarea {
+  resize: none;
+}
+
+.kontak-button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.kontak-button-wrapper label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: black;
+}
+
+
+.kontak-button {
+  background-color: #0D2430;
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 25px;
+  cursor: not-allowed;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.kontak-button.mobile {
+  width: 100%;
+  margin: 5px 0;
+}
+
+/* MAP */
+.kontak-map {
+  width: 100%;
+  height: 500px;
+  border-radius: 20px;
+}
+
+/* RESPONSIVE MOBILE */
+@media screen and (max-width: 768px) {
+  .kontak-title {
+    font-size: 2.5rem;
+  }
+
+  .kontak-form-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .kontak-form-text {
+    text-align: center;
+  }
+
+  .kontak-section {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 50px 0;
+  }
+
+    .kontak-profile {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .kontak-profile div p {
+    text-align: center;
+  }
+
+   .kontak-form-header {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .gathell-section{
+    padding: 0;
+  }
+  .kontak-image-wrapper{
+    padding: 0;
+  }
+  .kontak-form-wrapper{
+    padding: 0;
+    margin-bottom: 50px;
+  }
+  .kontak-image-overlay {
+  position: absolute;
+  top: 70px;
+  left: 73px;
+  width: 81%;
+  height: 94%;
+}
+.kontak-profile img{
+  height: 80px;
+  width: 80px;
+}
+  .kontak-container{ 
+    background-size: 500% auto !important;  /* Membuat gambar lebih besar dengan !important */
+    background-position: top center !important; /* Fokuskan gambar ke bagian atas */
+    }
+}
+
+

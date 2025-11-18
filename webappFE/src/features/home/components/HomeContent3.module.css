@@ -1,0 +1,111 @@
+.wrapper {
+  width: 100%;
+  background: #fff;
+  font-family: sans-serif;
+  padding: 80px 0;
+}
+
+.mobileWrapper {
+  margin-top: -220px;
+}
+
+.desktopWrapper {
+  margin-top: -80px;
+}
+
+.top {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 80px;
+  justify-content: space-between;
+}
+
+.mobileTop {
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.desktopTop {
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0 50px;
+}
+
+.titleTag {
+ display: inline-block;
+  color: #00202e;
+  padding: 10px 30px;
+  border-radius: 20px;
+  border: 2px solid #d2d3d2f5;
+  background-color: #F7FFDF;
+  font-size: 1rem;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+
+.bigTitle {
+  font-weight: bold;
+  margin-top: 25px;
+  color: black;
+}
+
+.leftText {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 1s ease;
+}
+
+.leftTextVisible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.rightText {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 1s ease .3s;
+}
+
+.rightTextVisible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.textCenter {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.textLeft {
+  text-align: left;
+}
+
+.button {
+  padding: 12px 25px;
+  border-radius: 25px;
+  border: none;
+  background: #CDEC76;
+  color: #0C2B4E;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: .3s;
+  font-size: 1rem;
+  height: 60px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .titleTag{
+    margin-top: 50px;
+    text-align: center; 
+    align-items: center;
+    margin-left: 30%;
+  }
+  .button{
+    align-items: center;
+    text-align: center;
+    margin-left: 30%;
+  }
+}

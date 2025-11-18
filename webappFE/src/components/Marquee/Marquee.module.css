@@ -1,0 +1,23 @@
+.marqueeWrapper {
+  width: 100%;
+  overflow: hidden;
+  background-color: #cdec76;
+  border-top: 2px solid #cdec76;
+  border-bottom: 2px solid #cdec76;
+  padding: 15px 0;
+  position: relative;
+  height: 85px;
+}
+
+.marqueeContent {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 2rem;
+  color: #0d2430;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.marqueeItem {
+  margin-right: 100px;
+}

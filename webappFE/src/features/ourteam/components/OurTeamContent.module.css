@@ -1,0 +1,106 @@
+/* =======================
+   SECTION BIRU UTAMA
+======================= */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+  background: 
+    linear-gradient(180deg, rgba(0, 13, 19, 0.949) 0%, rgba(40, 70, 78, 90) 100%),  /* Mudar transparan ke bawah */
+    url('https://nda.co.id/wp-content/uploads/2025/02/2.png') no-repeat center center;
+  background-size: cover;
+  padding: 80px 20px;
+}
+
+/* Judul "Our Team" */
+.title {
+  color: #cdec76;
+  padding: 12px 24px;
+  border-radius: 24px;
+  border: 2px solid rgba(62, 63, 59, 0.8);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+/* Heading desktop */
+.heading {
+  font-size: 4rem;
+  margin: 0;
+  color: white;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 1px;
+}
+
+/* Heading mobile */
+.headingMobile {
+  font-size: 3rem;
+  margin: 0;
+  color: white;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0;
+  color: white;
+  padding: 16px 24px 0;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* =======================
+   MARQUEE WRAPPER
+======================= */
+.marqueeWrapper {
+  margin-top: 24px;
+  width: 100%;
+  overflow: hidden;
+  background-color: #cdec76;
+  border-top: 2px solid #cdec76;
+  border-bottom: 2px solid #cdec76;
+  padding: 16px 0;
+  position: relative;
+  height: 85px;
+}
+
+/* =======================
+   SECTION KARTU TIM
+======================= */
+.teamSection {
+  background-color: #f8f9fa;
+  padding: 80px 20px;
+}
+
+/* Wrapper kartu */
+.cardsWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* =======================
+   MEDIA QUERY
+======================= */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 3rem;
+  }
+
+  .cardsWrapper {
+    gap: 16px;
+  }
+  .container{ 
+    background-size: 500% auto !important;  /* Membuat gambar lebih besar dengan !important */
+    background-position: top center !important; /* Fokuskan gambar ke bagian atas */
+    }
+}
