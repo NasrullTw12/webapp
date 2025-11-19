@@ -1,6 +1,6 @@
 .wrapper {
   width: 100%;
-  background: #fff;
+  background: #fbf9f7;
   font-family: sans-serif;
   padding: 80px 0;
 }
@@ -42,10 +42,10 @@
   font-size: 1rem;
   width: fit-content;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .bigTitle {
-  font-weight: bold;
   margin-top: 25px;
   color: black;
 }
@@ -74,13 +74,22 @@
 
 .textCenter {
   text-align: center;
-  margin-top: 5px;
+  margin-top:10px;
+  font-size: 2rem;
 }
 
 .textLeft {
   text-align: left;
+  margin-top: 5px;
+  color: #0d2430;
+  font-family: system-ui, 'Avenir', Helvetica, Arial, sans-serif;
+  font-size: 3.3em;
+  line-height: 1.3em;
+  font-weight:600;
 }
 
+
+/* 
 .button {
   padding: 12px 25px;
   border-radius: 25px;
@@ -95,17 +104,61 @@
   height: 60px;
 }
 
+.button:hover {
+  background: #0d2430;
+  color: #cdec76;
+} */
+
+
+.get-started-button20 {
+  padding: 12px 25px;
+  border-radius: 25px;
+  background-color: #cdec76;
+  color: #0C2B4E;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: 40%;
+}
+.circle-arrow20 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: black;
+  color: #cdec76;
+  transition: all 0.3s ease;
+  height: 20px;
+  width: 20px;
+}
+
+.get-started-button20:hover {
+  background-color: #0d2430;
+  color: #cdec76;
+  border: 1px solid white;
+}
+
+.get-started-button20:hover .circle-arrow20 {
+  background-color: #cdec76;
+  color: #0C2B4E; 
+  border: 1px solid black;
+  transform: translateX(5px);
+}
+
 
 @media screen and (max-width: 768px) {
   .titleTag{
-    margin-top: 50px;
+    margin-top: 150px;
     text-align: center; 
     align-items: center;
     margin-left: 30%;
   }
-  .button{
-    align-items: center;
-    text-align: center;
-    margin-left: 30%;
-  }
+.get-started-button20 {
+  margin-left: 90px;
+  width: 165px;
+}
+
 }

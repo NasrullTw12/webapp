@@ -79,7 +79,7 @@ const HomeContent1 = () => {
         } ${animateLeft ? styles.leftCardAnimate : ""}`}
       >
         <img
-          src="https://nda.co.id/wp-content/uploads/2025/02/28-19.jpg"
+          src="https://nda.co.id/wp-content/uploads/2025/02/6-31.jpg"
           alt="Left Card"
           className={styles.leftCardImage}
         />
@@ -90,6 +90,7 @@ const HomeContent1 = () => {
                 <div className={styles.textWrapper}>
                   Learn More
                 </div>
+
                 <div className={styles.arrowWrapper}>
                   <svg
                     width="20"
@@ -97,11 +98,13 @@ const HomeContent1 = () => {
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    style={{ color: "inherit" }}
                   >
-                    <circle cx="12" cy="12" r="11" fill="#cdec76" stroke="none" />
-                    <path d="M8 12H16" stroke="black" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M12 8L16 12L12 16" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <circle cx="12" cy="12" r="11" fill="currentcolor" />
+                    <path d="M8 12H16" stroke="#0d2430" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M12 8L16 12L12 16" stroke="#0d2430" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
+
                 </div>
               </div>
         </div>

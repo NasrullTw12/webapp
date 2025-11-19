@@ -34,8 +34,9 @@
 .subscribe-left h2 {
   color: #0C2B4E;
   font-size: 40px;
-  font-weight: bold;
+  font-weight:600;
   margin: 0;
+  font-family: system-ui, 'Avenir', Helvetica, Arial, sans-serif;
 }
 
 .subscribe-right {
@@ -50,6 +51,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: 50px;
+  margin-bottom: -10px;
 }
 
 .label-group label {
@@ -66,12 +68,13 @@
 
 .input-group input {
   flex: 1;
-  padding: 10px;
+  padding: 10px 50px;
   border-radius: 50px;
   border: 1px solid #ccc;
   font-size: 14px;
   background-color: #fff;
   height: 50px;
+  margin-right: 50px;
 }
 
 .input-group button {
@@ -96,13 +99,6 @@
   padding: 10px 50px 60px;
   flex-wrap: wrap;
   text-align: left;
-
-  /* Background image + overlay warna */
-  /* background: 
-    linear-gradient(to top, rgba(0, 32, 46, 0.7), rgba(0, 63, 92, 0.7)),
-    url('https://nda.co.id/wp-content/uploads/2025/02/2.png') no-repeat center center;
-  background-size: cover; */
-
   z-index: 1;
 }
 
@@ -145,6 +141,46 @@ footer {
   color: black;
 }
 
+
+.get-started-button20 {
+  padding: 12px 25px;
+  border-radius: 25px;
+  background-color: #0d2430;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: 190px;
+}
+.circle-arrow20 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: white;
+  color: #0d2430;
+  transition: all 0.3s ease;
+  height: 20px;
+  width: 20px;
+}
+
+.get-started-button20:hover {
+  background-color: #0d2430;
+  color: #cdec76;
+  border: 1px solid white;
+}
+
+.get-started-button20:hover .circle-arrow20 {
+  background-color: #cdec76;
+  color: #0C2B4E; 
+  border: 1px solid black;
+  transform: translateX(5px);
+}
+
+
 /* Responsive */
 @media (max-width: 1024px) {
   .subscribe-card {
@@ -162,6 +198,7 @@ footer {
   .label-group {
     justify-content: center;
     gap: 15px;
+    margin-bottom: -10px;
   }
 
   .input-group {
@@ -171,7 +208,7 @@ footer {
 
   .input-group input,
   .input-group button {
-    width: 100%;
+    width: 50%;
   }
 }
 
@@ -254,7 +291,7 @@ footer {
   }
 
   .input-group button {
-    width: 100%;
+    width: 50%;
     font-size: 14px;
     padding-left: 65px;
 
@@ -295,5 +332,8 @@ footer {
     text-align: center;
   align-items: center;
   margin-top: -5px;
+  }
+  .get-started-button20{
+    margin-left: 15px;
   }
 }

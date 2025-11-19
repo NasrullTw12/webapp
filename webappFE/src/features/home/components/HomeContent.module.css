@@ -30,8 +30,7 @@
   font-family: sans-serif;
   opacity: 0;
   transform: translateY(50px);
-  transition: all 1s ease;
-}
+  transition: all 1s ease 0.5s;}
 
 .left.animate {
   opacity: 1;

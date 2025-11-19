@@ -145,59 +145,64 @@ line-height: normal
   object-fit: cover;
   border-radius: 15px;
 }
-
-/* ---------- SLIDER ---------- */
-
 .sliderContainer {
   background: #cdec76;
   position: absolute;
-  top: 90%;
+  top: 80%;
   transform: translateY(-50%);
   width: 400px;
-  grid-column: 2/3;
-  grid-row: 2/3;
   height: 250px;
   border-radius: 40%;
-  padding: 20px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  display: flex;
-  align-items: center;
   overflow: hidden;
-  z-index: 10;
 }
 
 .sliderTrack {
   display: flex;
-  width: 700%;
-  animation: slide 30s linear infinite;
+  flex-wrap: nowrap;
+  animation: scroll 20s linear infinite;
+  margin-top: 70px;
 }
 
 .slide {
-  flex: 0 0 100%;
-  background: #cdec76;
-  border-radius: 20px;
-  padding: 10px;
+  flex: 0 0 auto;
+  margin: 0 10px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.slide img {
+.imgBox {
+  width: 120px;
+  height: 120px;
+  background: #ffffff;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.imgBox img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-@keyframes slide {
-  0% { transform: translateX(0); }
-  14.28% { transform: translateX(0); }
-  28.56% { transform: translateX(-100%); }
-  42.84% { transform: translateX(-200%); }
-  57.12% { transform: translateX(-300%); }
-  71.4% { transform: translateX(-400%); }
-  85.68% { transform: translateX(-500%); }
-  100% { transform: translateX(-600%); }
+.slide:nth-child(odd) .imgBox {
+  transform: translateY(-30px);
 }
+
+.slide:nth-child(even) .imgBox {
+  transform: translateY(30px);
+}
+
+/* Infinite scrolling animation */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* geser setengah track, tapi karena track loop akan terasa tak terbatas */
+}
+
 
 /* ---------- RESPONSIVE ---------- */
 

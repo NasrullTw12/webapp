@@ -88,16 +88,19 @@ const HomeContent4 = () => {
           <img src="https://nda.co.id/wp-content/uploads/2025/02/12-25.jpg" alt="Main" />
         </div>
 
-        {/* SLIDER */}
-        <div className={`${styles.sliderContainer} orderSlide`}>
-          <div className={styles.sliderTrack}>
-            {clients.map((src, i) => (
-              <div key={i} className={styles.slide}>
-                <img src={src} alt={`client ${i}`} />
-              </div>
-            ))}
-          </div>
+     <div className={`${styles.sliderContainer} orderSlide`}>
+  <div className={styles.sliderTrack}>
+    {[...clients, ...clients].map((src, i) => (
+      <div key={i} className={styles.slide}>
+        <div className={styles.imgBox}>
+          <img src={src} alt={`client ${i}`} />
         </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+
 
         {/* CARD 3 */}
         <div

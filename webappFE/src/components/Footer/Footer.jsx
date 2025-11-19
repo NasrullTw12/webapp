@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./footer.css";
 
 const Footer = () => {
@@ -83,21 +84,25 @@ const Footer = () => {
         </label>
       </div>
       <div className="input-group">
-        <input id="email" type="email" placeholder="Enter your email" disabled />
-      <button disabled className="subscribe-btn">
-        <span>Subscribe</span>
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="12" cy="12" r="11" fill="#cdec76" stroke="none" />
-          <path d="M8 12H16" stroke="black" stroke-width="2" stroke-linecap="round" />
-          <path d="M12 8L16 12L12 16" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
+        <input id="email" type="email" placeholder="Enter your email"  />
+       <div className="desktop-button20">
+              <Link to="/contact" className="get-started-button20">
+                Subscribe Now
+                <div className="circle-arrow20">
+                  <svg
+                    width="60"
+                    height="60"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="12" cy="12" r="11" stroke="currentColor" strokeWidth="0" />
+                    <path d="M8 12H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M12 8L16 12L12 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+              </Link>
+            </div>
       </div>
     </div>
   </div>

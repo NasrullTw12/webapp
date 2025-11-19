@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CardGrid from "./CardGrid";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./HomeContent3.module.css";
 
 const HomeContent3 = () => {
@@ -49,16 +50,15 @@ const HomeContent3 = () => {
         <div
           className={`${animate ? styles.leftTextVisible : styles.leftText}`}
         >
-          <div className={styles.titleTag}>Our Services</div>
+        <div className={styles.titleTag}>Our Services</div>
 
           <p
             className={`${styles.bigTitle} ${
               isMobile ? styles.textCenter : styles.textLeft
             }`}
-            style={{ fontSize: isMobile ? "2rem" : "3rem" }}
           >
             Fiduciary & Technology <br />
-            Solutions To Protect, Manage,
+            Solutions To Protect, Manage, <br />
             And Grow Your Business
           </p>
         </div>
@@ -66,25 +66,28 @@ const HomeContent3 = () => {
         <div
           className={`${animate ? styles.rightTextVisible : styles.rightText}`}
         >
-          <p style={{ fontSize: "1rem", color: "black", marginBottom: "40px", textAlign: isMobile? "center" : "auto", marginTop: isMobile? "-40px" : "140px" , with:"50%"}}>
-            Innovative fiduciary and financial technology solutions designed to
-            simplify management, enhance security, and drive growth.
+          <p style={{ fontSize: "1rem", color: "black", marginBottom: "40px", textAlign: isMobile? "center" : "left", marginTop: isMobile? "-40px" : "140px" , with:"50%"}}>
+            Innovative fiduciary and financial technology solutions <br /> designed to
+            simplify management, enhance security, and drive <br /> growth.
           </p>
-
-          <button className={styles.button}>
-            Learn More
-             <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="12" cy="12" r="11" fill="#0d2430" stroke="none" />
-                <path d="M8 12H16" stroke="#cdec76" strokeWidth="2" strokeLinecap="round" />
-                <path d="M12 8L16 12L12 16" stroke="#cdec76" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-          </button>
+          <div className="desktop-button20">
+              <Link to="/contact" className={styles["get-started-button20"]}>
+                Learn More
+                <div className={styles["circle-arrow20"]}>
+                  <svg
+                    width="60"
+                    height="60"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="12" cy="12" r="11" stroke="currentColor" strokeWidth="0" />
+                    <path d="M8 12H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M12 8L16 12L12 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+              </Link>
+            </div>
         </div>
       </section>
 
