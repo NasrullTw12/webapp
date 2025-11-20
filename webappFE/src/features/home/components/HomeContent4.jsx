@@ -89,18 +89,16 @@ const HomeContent4 = () => {
         </div>
 
      <div className={`${styles.sliderContainer} orderSlide`}>
-  <div className={styles.sliderTrack}>
-    {[...clients, ...clients].map((src, i) => (
-      <div key={i} className={styles.slide}>
-        <div className={styles.imgBox}>
-          <img src={src} alt={`client ${i}`} />
+        <div className={styles.sliderTrack}>
+          {[...clients, ...clients].map((src, i) => (
+            <div key={i} className={styles.slide}>
+              <div className={styles.imgBox}>
+                <img src={src} alt={`client ${i}`} />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    ))}
-  </div>
-</div>
-
-
 
         {/* CARD 3 */}
         <div

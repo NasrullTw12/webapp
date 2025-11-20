@@ -72,6 +72,7 @@ const HomeContent = () => {
           <Link to="/contact" className={styles.getStarted}>
             Let's Get Started
             <svg
+              className={styles.arrow}
               width="20"
               height="20"
               viewBox="0 0 24 24"

@@ -122,6 +122,7 @@
   text-decoration: none;
   transition: all 0.3s ease;
   width: 40%;
+    border: 1px solid transparent;
 }
 .circle-arrow20 {
   display: inline-flex;
@@ -139,6 +140,7 @@
   background-color: #0d2430;
   color: #cdec76;
   border: 1px solid white;
+    border: 1px solid white;
 }
 
 .get-started-button20:hover .circle-arrow20 {
@@ -147,6 +149,7 @@
   border: 1px solid black;
   transform: translateX(5px);
 }
+
 
 
 @media screen and (max-width: 768px) {

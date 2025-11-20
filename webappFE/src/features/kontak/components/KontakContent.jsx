@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import KontakContent1 from "./KontakContent1";
 import styles from "./KontakContent.module.css";
-import Marquee from "@components/Marquee/Marquee"; // import marquee global
+import Marquee from "@components/Marquee/Marquee";
 
   const marqueeItems = [
       '<i class="fa-solid fa-star" style="color:white;"></i> Smart Finance <i class="fa-solid fa-star" style="color:white;"></i>',
@@ -82,7 +82,7 @@ const KontakContent = () => {
                 <label>
                   <input type="checkbox"/> I agree to the Privacy Policy
                 </label>
-                <button type="submit" disabled className={`${styles["kontak-button"]} ${isMobile ? styles.mobile : ""}`}>
+                <button type="submit"  className={`${styles["kontak-button"]} ${isMobile ? styles.mobile : ""}`}>
                   Subscribe Now 
                 </button>
               </div>

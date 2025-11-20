@@ -60,21 +60,23 @@ const CardGrid = ({ cardData, isMobile }) => {
             >
               <div style={{ display: "flex", alignItems: "center", gap: "12px", width: "100%" }}>
                 
-                {isMobile && (
+                {/* {isMobile && (
                   <img
                     src="https://nda.co.id/wp-content/uploads/2025/02/ak3.png"
                     className={`${styles.ak3} ${isOpen ? styles.ak3Open : ""}`}
                     alt="ak3"
                   />
-                )}
+                )} */}
 
-                {!isMobile && (
+              {!isMobile && (
+                <div className={styles.iconWrapper}>
                   <img
                     src={card.icon}
                     alt=""
                     className={styles.iconCircle}
                   />
-                )}
+                </div>
+              )}
 
                 <h3
                   className={`${styles.title} ${

@@ -1,8 +1,6 @@
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  /* font-weight: 400; */
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   font-synthesis: none;
@@ -14,29 +12,10 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* biar padding dan border nggak nambah ukuran elemen */
+  box-sizing: border-box;
 }
 body {
-  margin: 0;   /* hilangkan margin default browser */
-  padding: 0;  /* kalau mau, bisa juga nolkan padding default */
+  margin: 0;   
+  padding: 0;  
   background-color: #00202e;
 }
-/* 
-   @media (max-width: 768px) {
-  #slebew {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    padding: 50px !important;
-  }
-
-  #slebew > div {
-    width: 100% !important;
-    position: relative !important;
-    transform: none !important;
-    top: auto !important;
-    margin-bottom: 20px !important;
-  }
-   }
-
-    */

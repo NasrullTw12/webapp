@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import styles from "./AboutContent1.module.css";
+import { Link, useLocation } from "react-router-dom";
+
 
 const AboutContent1 = () => {
   const [animate, setAnimate] = useState(false);
@@ -86,7 +88,7 @@ const AboutContent1 = () => {
           <div className={`${styles.aboutUs} ${animate ? styles.aboutUsAnimate : ""} ${isMobile ? styles.aboutUsMobile : ""}`}>
             <div className={styles.aboutUsTag}>About Us</div>
             <h3 className={isMobile ? styles.aboutTitleMobile : styles.aboutTitle}>
-              Solution For Your Every Digital Solution
+              The Best Digital Consultant In Town
             </h3>
           </div>
 
@@ -286,7 +288,6 @@ const AboutContent1 = () => {
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </button>
-
                 <div
                   style={{
                     color: "#fff",
@@ -299,37 +300,27 @@ const AboutContent1 = () => {
                   Join us to achieve sustainable growth and reach <br /> your financial goals with the right strategies.
                 </div>
               </div>
+                        <div className="desktop-button2">
 
-              <button
-                style={{
-                  padding: "12px 15px",
-                  borderRadius: "25px",
-                  border: "none",
-                  backgroundColor: "#CDEC76",
-                  color: "#0D2430",
-                  fontSize: "1rem",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "5px",
-                  width: "150px",
-                  justifyContent: "center",
-                  fontWeight: "normal",
-                }}
-              >
-                Learn More
-                 <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle cx="12" cy="12" r="11" fill="#0d2430" stroke="none" />
-                    <path d="M8 12H16" stroke="#cdec76" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M12 8L16 12L12 16" stroke="#cdec76" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-              </button>
+                  <Link to="/contact" className={styles["get-started-button2"]}>
+                    Learn More
+                    <div className={styles["circle-arrow2"]}>
+                      <svg
+                        width="60"
+                        height="60"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle cx="12" cy="12" r="11" stroke="currentColor" strokeWidth="0" />
+                        <path d="M8 12H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                        <path d="M12 8L16 12L12 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                  </Link>
             </div>
+            </div>
+
           )}
         </div>
       </section>
@@ -339,7 +330,7 @@ const AboutContent1 = () => {
         id="slebew"
         ref={statsRef}
         className={styles.statsSection}
-        style={{ gap: isMobile ? "2px" : "60px" }}
+        style={{ gap: isMobile ? "30px" : "60px" }}
       >
         {counts.map((count, index) => (
           <div key={index} className={styles.statsCard}>
@@ -356,9 +347,9 @@ const AboutContent1 = () => {
         ))}
       </section>
 
-      <p style={{ fontSize: "4rem", margin: "0", color: "white", backgroundColor: "white" }}>
+      {/* <p style={{ fontSize: "4rem", margin: "0", color: "white", backgroundColor: "white" }}>
         Cihuyyy
-      </p>
+      </p> */}
     </div>
   );
 };

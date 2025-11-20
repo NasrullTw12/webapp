@@ -280,10 +280,16 @@ padding: 40px 0;
   border: none;
   padding: 15px 25px;
   border-radius: 25px;
-  cursor: not-allowed;
+  cursor: pointer;
   font-weight: bold;
   transition: 0.3s;
 }
+
+.kontak-button:hover {
+  background-color: #cdec76;
+  color: #0D2430;
+}
+
 
 .kontak-button.mobile {
   width: 100%;

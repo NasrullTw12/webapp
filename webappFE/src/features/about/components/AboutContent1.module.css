@@ -74,7 +74,7 @@
   background-color: #F7FFDF;
   font-size: 1rem;
   width: fit-content;
-  margin-bottom: 20px;
+  margin-bottom: 2px;
 }
 
 .aboutTitle {
@@ -83,6 +83,7 @@
   line-height: 1.2;
   margin: 0;
   text-align: left;
+  margin-bottom: 2px;
 }
 
 .aboutTitleMobile {
@@ -102,6 +103,9 @@
   background-color: transparent;
   border-radius: 15px;
   width: 100%;
+  margin-bottom: 2px;
+  margin-top: -10px;
+  margin-left: -25px;
 }
 .companyMissionMobile {
   display: flex;
@@ -155,7 +159,7 @@
 
 .missionIcon {
   width: 55px;
-  height: 60px;
+  height: 55px;
   background: #cdec76;
   border-radius: 50%;
   padding: 10px;
@@ -172,6 +176,7 @@
   margin: 0;
   flex: 1;
   margin-top: 25px;
+  margin-bottom: 100px;
 }
 
 .missionTextMobile {
@@ -249,7 +254,7 @@
 
 .visionIcon {
   width: 55px;
-  height: 60px;
+  height: 55px;
   background: #cdec76;
   border-radius: 50%;
   padding: 10px;
@@ -306,8 +311,9 @@
 }
 
 .imageDesktop {
-  height: 400px;
+  height: auto;
   width: auto;
+  border-radius: 30px;
 }
 
 .learnMoreButton {
@@ -348,6 +354,43 @@
 }
 
 
+.get-started-button2 {
+  padding: 12px 25px;
+  border-radius: 25px;
+  background-color: #cdec76;
+  color: #0C2B4E;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: 165px;
+}
+.circle-arrow2 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: black;
+  color: #cdec76;
+  transition: all 0.3s ease;
+  height: 20px;
+  width: 20px;
+}
+
+.get-started-button2:hover {
+  background-color: white;
+  color: #0C2B4E;
+  border: 1px solid white;
+}
+
+.get-started-button2:hover .circle-arrow2 {
+  background-color: #0C2B4E;
+  color: white; 
+  border: 1px solid black;
+  transform: translateX(5px);
+}
 
 
 
@@ -386,6 +429,7 @@
   padding-top: 15px;
   text-align: center;
   background: transparent;
+  margin-top: 30px;
 }
 
 .statsProgressTop {
@@ -409,7 +453,7 @@
 }
 
 .statsCount {
-  font-size: 3rem;
+  font-size: 4.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -418,7 +462,7 @@
 .statsIcon {
   margin-left: 8px;
   margin-top: -8px;
-  font-size: 2rem;
+  font-size: 3rem;
   color: #CDEC76;
 }
 

@@ -4,7 +4,7 @@ import React, { Suspense, lazy } from "react";
 const OurTeamContent = lazy(() => import("./components/OurTeamContent"));
 
 const OurTeam = () => (
-  <Suspense fallback={<div>Loading Our Team...</div>}>
+  <Suspense fallback={<div></div>}>
     <OurTeamContent />
   </Suspense>
 );
