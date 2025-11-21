@@ -14,7 +14,7 @@
 .subscribe-card {
   position: relative; /* atau fixed */
   z-index: 999;       /* pastikan selalu di atas konten lain */
-  top: -90px;         /* jika ingin sedikit overlap atas */
+  top: -150px;         /* jika ingin sedikit overlap atas */
   margin: 0 auto;
   width: 80%;
   background-color: #CDEC76;
@@ -170,13 +170,13 @@ footer {
 .get-started-button20:hover {
   background-color: #0d2430;
   color: #cdec76;
-  border: 1px solid white;
+  /* border: 1px solid white; */
 }
 
 .get-started-button20:hover .circle-arrow20 {
   background-color: #cdec76;
   color: #0C2B4E; 
-  border: 1px solid black;
+  /* border: 1px solid black; */
   transform: translateX(5px);
 }
 

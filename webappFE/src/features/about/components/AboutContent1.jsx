@@ -7,6 +7,7 @@ const AboutContent1 = () => {
   const [animate, setAnimate] = useState(false);
   const [counts, setCounts] = useState([0, 0, 0, 0]);
   const targets = [10, 13, 98, 15];
+  const progressWidths = ["10%", "25%", "35%", "50%"];
   const descriptions = [
     "Happy Customers",
     "Awards Winning",
@@ -88,7 +89,7 @@ const AboutContent1 = () => {
           <div className={`${styles.aboutUs} ${animate ? styles.aboutUsAnimate : ""} ${isMobile ? styles.aboutUsMobile : ""}`}>
             <div className={styles.aboutUsTag}>About Us</div>
             <h3 className={isMobile ? styles.aboutTitleMobile : styles.aboutTitle}>
-              The Best Digital Consultant In Town
+              The Best Digital <br />Consultant In Town
             </h3>
           </div>
 
@@ -253,31 +254,31 @@ const AboutContent1 = () => {
                   display: "flex",
                   flexDirection: "row",
                   alignItems: "flex-start",
-                  gap: "12px",
+                  gap: "10px",
                   width: "auto",
-                  paddingLeft: "21px",
                 }}
               >
                 <button
                   aria-label="Select consultation"
                   style={{
-                    width: "28px",
-                    height: "28px",
+                    width: "25px",
+                    height: "25px",
                     borderRadius: "50%",
                     background: "#CDEC76",
                     border: "none",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    padding: 0 ,
-                    color: "#fff",
+                    paddingLeft: "5px",
+                    paddingRight: "5px"
+,                    color: "#fff",
                     alignSelf: "flex-start",
                   }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="17"
-                    height="17"
+                    width="18"
+                    height="18"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="#0d2430"
@@ -297,7 +298,7 @@ const AboutContent1 = () => {
                     marginRight: "30px",
                   }}
                 >
-                  Join us to achieve sustainable growth and reach <br /> your financial goals with the right strategies.
+                  Join us to achieve sustainable growth and reach your financial goals with the right strategies.
                 </div>
               </div>
                         <div className="desktop-button2">
@@ -326,30 +327,28 @@ const AboutContent1 = () => {
       </section>
 
       {/* Stats Section */}
-      <section
-        id="slebew"
-        ref={statsRef}
-        className={styles.statsSection}
-        style={{ gap: isMobile ? "30px" : "60px" }}
-      >
-        {counts.map((count, index) => (
-          <div key={index} className={styles.statsCard}>
-            <div className={styles.statsProgressTop}>
-              <div className={styles.statsProgressBar1}></div>
-              <div className={styles.statsProgressBar2}></div>
-            </div>
-            <div className={styles.statsCount}>
-              <span>{count}</span>
-              <span className={styles.statsIcon}>{icons[index]}</span>
-            </div>
-            <div className={styles.statsDescription}>{descriptions[index]}</div>
-          </div>
-        ))}
-      </section>
-
-      {/* <p style={{ fontSize: "4rem", margin: "0", color: "white", backgroundColor: "white" }}>
-        Cihuyyy
-      </p> */}
+     <section ref={statsRef} className={styles.statsSection} style={{ gap: isMobile ? "30px" : "60px" }}>
+       {counts.map((count, index) => (
+         <div key={index} className={styles.statsCard}>
+           <div className={styles.statsProgressTop}>
+             <div
+               className={styles.statsProgressBar1}
+               style={{ "--barWidth": progressWidths[index] }}
+             ></div>
+             <div className={styles.statsProgressBar2}></div>
+           </div>
+     
+           <div className={styles.statsCount}>
+             <span>{count}</span>
+             <span className={styles.statsIcon}>{icons[index]}</span>
+           </div>
+     
+           <div className={styles.statsDescription}>{descriptions[index]}</div>
+         </div>
+       ))}
+     
+       <div className={styles.tambahan}></div>
+     </section>
     </div>
   );
 };

@@ -4,15 +4,15 @@
   background-color: #cdec76;
   border-top: 2px solid #cdec76;
   border-bottom: 2px solid #cdec76;
-  padding: 15px 0;
+  padding: 10px 0;
   position: relative;
-  height: 85px;
+  height: 90px;
 }
 
 .marqueeContent {
   display: inline-block;
   white-space: nowrap;
-  font-size: 2rem;
+  font-size: 3rem;
   color: #0d2430;
   font-weight: bold;
   font-family: sans-serif;

@@ -66,7 +66,7 @@ const HomeContent3 = () => {
         <div
           className={`${animate ? styles.rightTextVisible : styles.rightText}`}
         >
-          <p style={{ fontSize: "1rem", color: "black", marginBottom: "40px", textAlign: isMobile? "center" : "left", marginTop: isMobile? "-40px" : "140px" , with:"50%"}}>
+          <p style={{ fontSize: "1rem", color: "black", marginBottom: "40px", textAlign: isMobile? "center" : "left", marginTop: isMobile? "-40px" : "140px" , with:"50%", marginRight : "30px"}}>
             Innovative fiduciary and financial technology solutions <br /> designed to
             simplify management, enhance security, and drive <br /> growth.
           </p>

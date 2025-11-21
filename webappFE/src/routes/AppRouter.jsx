@@ -1,22 +1,20 @@
-import { Suspense, lazy } from "react";
+// AppRouter.jsx
 import { Routes, Route, Navigate } from "react-router-dom";
 
-// Lazy load halaman
-const Home = lazy(() => import("@features/home/Home"));
-const About = lazy(() => import("@features/about/About"));
-const Kontak = lazy(() => import("@features/kontak/Kontak"));
-const OurTeam = lazy(() => import("@features/ourteam/OurTeam"));
+// Import langsung tanpa lazy
+import Home from "@features/home/Home";
+import About from "@features/about/About";
+import Kontak from "@features/kontak/Kontak";
+import OurTeam from "@features/ourteam/OurTeam";
 
 const AppRouter = () => (
-  <Suspense fallback={<div>Loading...</div>}>
-    <Routes>
-      <Route path="/" element={<Navigate to="/home" replace />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<Kontak />} />
-      <Route path="/team" element={<OurTeam />} />
-    </Routes>
-  </Suspense>
+  <Routes>
+    <Route path="/" element={<Navigate to="/home" replace />} />
+    <Route path="/home" element={<Home />} />
+    <Route path="/about" element={<About />} />
+    <Route path="/contact" element={<Kontak />} />
+    <Route path="/team" element={<OurTeam />} />
+  </Routes>
 );
 
 export default AppRouter;

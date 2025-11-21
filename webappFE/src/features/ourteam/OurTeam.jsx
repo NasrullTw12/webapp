@@ -1,12 +1,6 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
+import OurTeamContent from "./components/OurTeamContent";
 
-// Lazy load OurTeamContent secara spesifik, bukan folder
-const OurTeamContent = lazy(() => import("./components/OurTeamContent"));
-
-const OurTeam = () => (
-  <Suspense fallback={<div></div>}>
-    <OurTeamContent />
-  </Suspense>
-);
+const OurTeam = () => <OurTeamContent />;
 
 export default OurTeam;

@@ -131,12 +131,13 @@ line-height: normal
 .bigImageWrapper {
   grid-column: 2/3;
   grid-row: 1 / span 2;
-  width: 500px;
+  width: 550px;
   height: 100%;
   padding: 0;
   overflow: hidden;
   border-radius: 15px;
   transition: all 1s ease;
+  padding-bottom: 10%;
 }
 
 .bigImageWrapper img {
@@ -229,3 +230,8 @@ line-height: normal
   .order3 { order: 5; }
   .order4 { order: 6; }
 }
+
+.tambahan {
+  margin-top: 100px;
+}
+

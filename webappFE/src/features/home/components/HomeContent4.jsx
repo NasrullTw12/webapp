@@ -129,8 +129,10 @@ const HomeContent4 = () => {
           <h3 style={{ marginTop: "70px" }}>Monitoring</h3>
           <p>Stay in control with real-time tracking and insights, helping you make informed decisions with confidence.</p>
         </div>
-
       </section>
+                <div className={styles.tambahan}></div>
+
+      
     </div>
   );
 };

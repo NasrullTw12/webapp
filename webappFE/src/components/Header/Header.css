@@ -28,15 +28,19 @@ header {
   background: #FFFFFF0A;
   padding-left: 100px;
   padding-right: 100px;
+  margin-left: 70px;
 }
 
 .desktop-menu a {
   transition: color 0.3s;
-  padding: 0 50px;
+  padding: 0 40px;
   text-decoration: none;
   color: #fff;
   line-height: 60px;
   border-left: 1px solid #1b191918;
+}
+.desktop-menu a:hover {
+  color: #CDEC76;
 }
 
 .desktop-menu a:first-child {

@@ -84,27 +84,30 @@ const AboutContent2 = () => {
           className={styles.leftCardImage}
         />
         <div className={styles.gradientOverlay}></div>
-        <div className={styles.textOverlay}>
-          How Does It Work?
-            <div className={styles.textOverlaySub}>
-              <div className={styles.textWrapper}>
-                Learn More
-              </div>
-              <div className={styles.arrowWrapper}>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="12" cy="12" r="11" fill="#cdec76" stroke="none" />
-                  <path d="M8 12H16" stroke="black" strokeWidth="2" strokeLinecap="round" />
-                  <path d="M12 8L16 12L12 16" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-            </div>
-        </div>
+         <div className={styles.textOverlay}>
+            How Does It Work?
+                <div className={styles.textOverlaySub}>
+                  <div className={styles.textWrapper}>
+                    Learn More
+                  </div>
+  
+                  <div className={styles.arrowWrapper}>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{ color: "inherit" }}
+                    >
+                      <circle cx="12" cy="12" r="11" fill="currentcolor" />
+                      <path d="M8 12H16" stroke="#0d2430" strokeWidth="2" strokeLinecap="round" />
+                      <path d="M12 8L16 12L12 16" stroke="#0d2430" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+  
+                  </div>
+                </div>
+          </div>
       </div>
 
       <div

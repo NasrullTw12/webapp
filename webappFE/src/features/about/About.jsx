@@ -1,16 +1,14 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
+import AboutContent from "./components/AboutContent";
+import AboutContent1 from "./components/AboutContent1";
+import AboutContent2 from "./components/AboutContent2";
 
-const AboutContent = lazy(() => import ( "./components/AboutContent"));
-const AboutContent1 = lazy(() => import ( "./components/AboutContent1"));
-const AboutContent2 = lazy(() => import ( "./components/AboutContent2"));
-const About = () => {
-  return (
-  <Suspense fallback={<div></div>}>
-      <AboutContent />
-      <AboutContent2 />
-      <AboutContent1 />
-    </Suspense>
-  );
-};
+const About = () => (
+  <>
+    <AboutContent />
+    <AboutContent2 />
+    <AboutContent1 />
+  </>
+);
 
 export default About;

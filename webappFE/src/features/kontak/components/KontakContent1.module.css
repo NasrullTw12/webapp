@@ -85,39 +85,43 @@
   text-align: left;
   width: 100%;
 }
+
+
+
 .textOverlaySub {
   margin-top: 10px;
   color: #CDEC76;
   display: flex;
-  align-items: center;     /* center vertikal teks + panah */
-  gap: 5px;                /* jarak */
+  align-items: center;
+  gap: 5px;
   font-size: 1rem;
+  transition: color 0.2s ease; 
+    cursor: pointer;
 }
 
-.textWrapper {
-  display: inline-block;
+.textOverlaySub:hover {
+  color: #fff; 
 }
+
+.textOverlaySub svg {
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+.textOverlaySub:hover svg{
+    transform: translateX(5px);
+
+}
+
 
 .arrowWrapper {
-  display: inline-flex;     /* inline-flex supaya ikut aliran teks */
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  min-width: 20px;         /* pastikan div tidak collapse */
-  min-height: 20px;
-}
-
-.arrowWrapperBottom {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 20px;
   height: 20px;
-  margin-right: 10px;
-  margin-top: 10px; /* jarak dari teks */
+  min-width: 20px;
+  min-height: 20px;
 }
-
 
 
 

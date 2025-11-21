@@ -1,15 +1,19 @@
 .section {
+  padding-top: 70px;
+  padding-left: 20px;
+  padding-right: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   box-sizing: border-box;
-  padding: 20px;
+  /* padding: 20px; */
   gap: 20px;
-background: 
-    linear-gradient(180deg, rgba(40, 70, 78, 10) 5%, rgba(255, 255, 255, 10) 90%), /* Gelapin gradasi */
+/* background: 
+    linear-gradient(180deg, rgba(40, 70, 78, 10) 5%, rgba(255, 255, 255, 10) 90%),
     url('https://nda.co.id/wp-content/uploads/2025/02/2.png') no-repeat center center;
-background-size: cover;
+background-size: cover; */
+background: #fff;
 
 }
 
@@ -23,6 +27,7 @@ background-size: cover;
 }
 
 .leftCard {
+  margin-top: 100px;
   position: relative;
   border-radius: 35px;
   overflow: hidden;
@@ -83,17 +88,6 @@ background-size: cover;
   width: 100%;
 } */
 
-.circle-arrow-kontak {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: black;
-  color: black;
-  transition: all 0.3s ease;
-  height: 20px;
-  width: 20px;
-}
 
 
 .textOverlay {
@@ -107,38 +101,44 @@ background-size: cover;
   text-align: left;
   width: 100%;
 }
+
+
+
 .textOverlaySub {
   margin-top: 10px;
   color: #CDEC76;
   display: flex;
-  align-items: center;     /* center vertikal teks + panah */
-  gap: 5px;                /* jarak */
+  align-items: center;
+  gap: 5px;
   font-size: 1rem;
+  transition: color 0.2s ease; 
+    cursor: pointer;
 }
 
-.textWrapper {
-  display: inline-block;
+.textOverlaySub:hover {
+  color: #fff; 
 }
+
+.textOverlaySub svg {
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+.textOverlaySub:hover svg{
+    transform: translateX(5px);
+
+}
+
 
 .arrowWrapper {
-  display: inline-flex;     /* inline-flex supaya ikut aliran teks */
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  min-width: 20px;         /* pastikan div tidak collapse */
-  min-height: 20px;
-}
-
-.arrowWrapperBottom {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 20px;
   height: 20px;
-  margin-right: 10px;
-  margin-top: 10px; /* jarak dari teks */
+  min-width: 20px;
+  min-height: 20px;
 }
+
 
 
 
@@ -207,13 +207,15 @@ background-size: cover;
 }
 
 .contactIcon {
-  margin-bottom: 10px;
+ margin-bottom: 10px;
   width: 65px;
-  height: 70px;
+  height: 65px;
   background: #CDEC76;
   border-radius: 50%;
-  padding: 10px;
+  /* padding: 10px; */
   object-fit: contain;
+  padding-bottom: 10px;
+  padding-top: 10px;
 
 }
 

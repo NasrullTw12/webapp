@@ -78,12 +78,14 @@
 }
 
 .aboutTitle {
-  font-size: 3.5rem;
+  font-size: 3rem;
   color: #0d2430;
   line-height: 1.2;
   margin: 0;
   text-align: left;
   margin-bottom: 2px;
+  font-weight:600;
+  font-family: sans-serif;
 }
 
 .aboutTitleMobile {
@@ -382,13 +384,11 @@
 .get-started-button2:hover {
   background-color: white;
   color: #0C2B4E;
-  border: 1px solid white;
 }
 
 .get-started-button2:hover .circle-arrow2 {
   background-color: #0C2B4E;
   color: white; 
-  border: 1px solid black;
   transform: translateX(5px);
 }
 
@@ -440,9 +440,11 @@
 }
 
 .statsProgressBar1 {
-  flex: 1;
-  height: 5px;
+  width: var(--barWidth);
+  flex: none;             
+  height: 10px;
   background: #CDEC76;
+  margin-bottom: -4px;
 }
 
 .statsProgressBar2 {
@@ -453,7 +455,7 @@
 }
 
 .statsCount {
-  font-size: 4.5rem;
+  font-size: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -475,7 +477,9 @@
   font-weight: normal;
 }
 
-
+.tambahan {
+  margin-top:  300px;
+}
 @media screen and (max-width: 768px) {
   .statsSection {
     margin-top: 0px;

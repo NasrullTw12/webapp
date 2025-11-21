@@ -1,5 +1,6 @@
-/* AboutContent.module.css */
-.container {
+/* KontakContent.module.css */
+
+.kontak-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,17 +10,21 @@
     linear-gradient(180deg, rgba(0, 13, 19, 0.949) 0%, rgba(40, 70, 78, 90) 100%),  /* Mudar transparan ke bawah */
     url('https://nda.co.id/wp-content/uploads/2025/02/2.png') no-repeat center center;
   background-size: cover;  
+  padding: 60px 20px;
 }
-.header {
+
+.kontak-header {
   display: inline-block;
-  color: #cdec76;
+  color: #CDEC76;
   padding: 10px 20px;
   border-radius: 20px;
   border: 2px solid #3e3f3bff;
-  margin-top: 60px;
+  margin-bottom: 0;
+  margin-top: 10px;
+  font-weight: bold;
 }
 
-.title {
+.kontak-title {
   font-size: 4rem;
   margin: 0;
   color: white;
@@ -28,9 +33,9 @@
   line-height: 1;
 }
 
-.description {
+.kontak-subtitle {
   font-size: 1rem;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0;
   color: white;
   margin-bottom: 60px;
@@ -48,6 +53,7 @@
   padding: 10px 0;
   position: relative;
 }
+
 
 @media screen and (max-width: 768px) {
   .container{ 
